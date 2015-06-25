@@ -1,0 +1,245 @@
+.overlay {
+  background: #252525;
+  width: 100%;
+  height: 100%;
+  top: 50px;
+  position: absolute;
+  z-index: 1200;
+  opacity: .90;
+}
+
+.modal-body {
+  height: 420px ;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  height: 560px;
+  background: #086A9E;
+  font-family: "font-medium";
+  border-radius: 3px;
+  position: absolute;
+  z-index: 1250;
+  top: 80px;
+  left: 50%;
+  margin-left: -300px;
+  overflow: hidden;
+  width: 600px;
+}
+
+.modal-header {
+  background: #327eb8;
+  height: 30px;
+  font-family: "font-medium";
+  font-size: 16px;
+  line-height: 30px;
+  padding: 10px 15px;
+  width: 100%;
+
+}
+
+.modal-navigation {
+  background: #327eb8;
+  height: 30px;
+  font-family: "font-medium";
+  font-size: 14px;
+  line-height: 30px;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.modal-navigation ul li {
+  float: left;
+  margin-right: 16px;
+  min-width: 50px;
+  padding: 0 15px;
+  text-align: center;
+  cursor: pointer;
+  opacity: .75;
+  padding-top: 4px;
+}
+
+.modal-navigation ul li.modal-navigation-selected {
+  background: #086BA0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  height: 36px;
+  opacity: 1;
+}
+
+.modal-footer {
+  background: #327eb8;
+  height: 30px;
+  text-align: right;
+  padding: 10px;
+}
+
+.modal input,
+.modal select,
+.modal textarea {
+  background: #327eb8;
+  border-radius: 3px;
+  color: #fff;
+  border: 0;
+  font-family: "font-medium";
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  margin: 4px;
+  padding: 12px;
+  font-size: 13px;
+  letter-spacing: .2px;
+  outline: none;
+  width: 330px;
+}
+
+.modal textarea {
+  height: 70px;
+}
+
+.modal select {
+  height: 37px;
+}
+
+.modal input:focus,
+.modal textarea:focus{
+  opacity: .75;
+}
+
+.modal input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: .75;
+}
+
+.modal table {
+  font-size: 13px;
+}
+
+.modal td {
+  vertical-align: top;
+}
+
+.modal td.label {
+  padding-top: 15px;
+  width: 150px;
+}
+
+
+/* Modal pretty */
+
+.modal-pretty {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  height: 590px;
+  background: #086A9E;
+  font-family: "font-regular";
+  border-radius: 3px;
+  position: absolute;
+  z-index: 1250;
+  font-size: 13px;
+  top: 80px;
+  left: 50%;
+  margin-left: -262.5px;
+  overflow: hidden;
+  opacity: 0;
+  width: 525px; 
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.modal-pretty .modal-header {
+  background: #327eb8;
+  height: 30px;
+  line-height: 30px;
+  font-family: "font-medium";
+  font-size: 16px;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.modal-pretty .modal-body {
+  height: 240px;
+  padding: 0;
+  overflow: scroll;
+}
+
+.modal-pretty span {
+  font-size: 13px;
+}
+
+.modal-pretty .modal-footer {
+  background: #327eb8;
+  height: 50px;
+  padding: 0;
+  text-align: right;
+}
+
+.modal-pretty .modal-footer button {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: "font-medium";
+  font-size: 14px;
+  float: left;
+  outline: none;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 50%;
+}
+.modal-pretty .modal-footer button:hover {
+  opacity: .75;
+}
+
+.modal-pretty .modal-footer button.button-first {
+  border-right: 1px solid white;
+}
+
+.modal-pretty .modal-photo {
+  height: 250px;
+  width: 525px;
+  background: white;
+  position: relative;
+}
+
+.modal-pretty .avatar {
+  background: #fff;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  background: #fff url(../img/ob1-logo.png) 35% 50% / cover no-repeat;
+  background-size: 80%;
+}
+
+.modal-pretty .modal-photo-shadow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0px -120px 112px -62px rgba(0, 0, 0, 0.9)
+}
+
+.modal-pretty .modal-item-price-style {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 16px;
+  font-family: "font-medium";
+}
+
+.modal-pretty table {
+  width: 100%;
+  margin: 16px 0;
+}
+.modal-pretty table td {
+  border-bottom: solid 1px #327EB8;
+  vertical-align: middle;
+}
+
+.modal-purchase-detail .modal-body table {
+    transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.modal-purchase-detail-settings tr{
+  height: 60px;
+}

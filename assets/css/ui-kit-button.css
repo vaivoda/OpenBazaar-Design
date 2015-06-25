@@ -1,0 +1,50 @@
+.button-primary {
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "font-medium";
+  font-size: 13px;
+  height: 30px;
+  letter-spacing: .2px;
+  line-height: 32px;
+  outline: none;
+  padding: 0 22px;
+  text-align: center;
+  transition: box-shadow .3s;
+}
+
+.button-primary:hover{
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.30);
+  opacity: .9;
+  /*margin-top: -2px;*/
+}
+
+.button-primary:active{
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  opacity: .75;
+  /*margin-top: -2px;*/
+}
+
+.button-primary:hover {
+  background: #1a3f65;
+}
+
+
+.button-chat-control {
+  background: #252525;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "font-regular";
+  font-size: 16px;
+  height: 26px;
+  line-height: 30px;
+  text-align: center;
+  min-width: 14px;
+  padding: 0 6px
+}
+
+.button-chat-control:hover {
+  opacity: .75;
+}

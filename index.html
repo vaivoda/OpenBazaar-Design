@@ -1,0 +1,532 @@
+<html>
+  <head>
+    <title>OpenBazaar</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="assets/css/colorpicker.css" rel="stylesheet">
+    <link href="assets/css/dropzone.css" rel="stylesheet">
+    <link href="assets/css/ui-kit.css" rel="stylesheet">
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/polymer/polymer-mini.html">
+    <link rel="import" href="assets/components/_all-elements.html">
+
+    <script src="assets/js/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/jquery-color-animate.js"></script>
+    <script src="assets/js/underscore-min.js"></script>
+    <script src="assets/js/spin.min.js"></script>
+    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/dropzone.js"></script>
+    <script src="assets/js/colorpicker.js"></script>
+    <script src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <div class="body-shadow"></div>
+    <div class="overlay visibility-hidden"></div>
+    <div class="modal visibility-hidden">
+      <div class="modal-product visibility-hidden">
+        <div class="modal-header">
+          Add item
+        </div>
+        <div class="modal-body">
+          <table>
+            <tr>
+              <td class="label">Item name</td>
+              <td><input class="new-product-name" /></td>
+            </tr>
+            <tr>
+              <td class="label">Description</td>
+              <td><textarea class="new-product-description"></textarea></td>
+            </tr>
+            <tr>
+              <td class="label">Price</td>
+              <td>
+                <input class="new-product-price input-medium" placeholder="Item price" />
+                <input class="new-product-shipping input-medium" placeholder="Shipping price" />
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Quantity</td>
+              <td><input type="number" class="new-product-qunatity input-medium" value="1" /></td>
+            </tr>
+            <tr>
+              <td class="label">Photos</td>
+              <td>
+                <div id="dropzone">
+                  <form action="/" class="dropzone" id="demo-upload">
+                    <div class="dz-message">Drop files here or click to select</div>
+                  </form>
+                  <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Condition</td>
+              <td>
+                <select class="new-product-condition">
+                  <option>--</option>
+                  <option>New</option>
+                  <option>Refurbished</option>
+                  <option>Used (Very good condition)</option>
+                  <option>Used (Fair condition)</option>
+                  <option>Used (Poor condition)</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Keywords</td>
+              <td><input class="new-product-keywords"  placeholder="Separate by commas" /></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button class="button-primary close-modal">Cancel</button>
+          <button class="button-primary new-product-save">Save</button>
+        </div>
+      </div>
+
+      <div class="modal-store-meta visibility-hidden">
+        <div class="modal-header">
+          Store configuration
+        </div>
+        <div class="modal-body">
+          <table>
+            <tr>
+              <td class="label">Store name</td>
+              <td><input class="store-meta-name" /></td>
+            </tr>
+            <tr>
+              <td class="label">Handle</td>
+              <td><input class="store-meta-handle" /></td>
+            </tr>
+            <tr>
+              <td class="label">Description</td>
+              <td><textarea class="store-meta-description"></textarea></td>
+            </tr>
+            <tr>
+              <td class="label">Icon</td>
+              <td><input type="file" /></td>
+            </tr>
+            <tr>
+              <td class="label">Website</td>
+              <td><input class="store-meta-website" placeholder="optional" /></td>
+            </tr>
+            <tr>
+              <td class="label">Email</td>
+              <td><input class="store-meta-email" placeholder="optional" /></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button class="button-primary close-modal">Cancel</button>
+          <button class="button-primary store-meta-save">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-pretty visibility-hidden">
+      <div class="modal-purchase-detail visibility-hidden">
+        <div class="modal-photo"><div class="modal-photo-shadow"></div><div class="modal-transaction-id modal-item-price-style position-float-left position-left-12px"></div><div class="modal-transaction-price modal-item-price-style"></div></div>
+        <div class="modal-navigation">
+          <ul>
+            <li class="modal-navigation-selected" data-section="modal-purchase-detail-summary">Summary</li>
+            <li data-section="modal-purchase-detail-shipping">Shipping</li>
+            <li data-section="modal-purchase-detail-payment">Payment</li>
+            <li data-section="modal-purchase-detail-settings">Settings</li>
+          </ul>
+        </div>
+
+        <div class="modal-body">
+          <table class="modal-purchase-detail-summary position-margin-0">
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px"><div class="avatar modal-store-avatar"></div></td>
+              <td class="position-padding-0">
+                <div class="position-float-left type-no-wrap">
+                  <div class="type-weight-medium position-margin-bottom-3px type-size-14px modal-item-name"></div>
+                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium ">Sold by <span class="modal-store-name"></span></div>
+                </div>
+                <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-item-price"></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px"><div class="avatar modal-store-avatar"></div></td>
+              <td class="position-padding-0">
+                <div class="position-float-left type-no-wrap">
+                  <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Shipping</div>
+                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-store-name"></span></div>
+                </div>
+                <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-shipping-price"></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px"><div class="avatar modal-mod-avatar"></div></td>
+              <td class="position-padding-0">
+                <div class="position-float-left type-no-wrap">
+                  <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Protected transaction</div>
+                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-mod-name"></span></div>
+                </div>
+                <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-mod-price"></div>
+              </td>
+            </tr>
+          </table>
+
+          <table class="modal-purchase-detail-shipping position-margin-0 visibility-hidden">
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px"><div class="avatar modal-buyer-avatar"></div></td>
+              <td class="position-padding-0">
+                <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Ship to</div>
+                <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium "><div class="modal-buyer-address"></div></div>
+              </td>
+            </tr>
+          </table>
+
+          <table class="modal-purchase-detail-payment position-margin-0 visibility-hidden">
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px"><div class="avatar"></div></td>
+              <td class="position-padding-0">
+                <div class="position-float-left type-no-wrap">
+                  <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Payment sent to <span class="modal-mod-name"></span></div>
+                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium "><span class="modal-puchase-date"></span></div>
+                </div>
+                <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-item-price"></div>
+              </td>
+            </tr>
+          </table>
+
+          <table class="modal-purchase-detail-settings position-margin-0 visibility-hidden">
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px">Order status</td>
+              <td class="position-padding-0">
+                <select class="select position-width-130px">
+                  <option>Processing</option>
+                  <option>Shipped</option>
+                  <option>Delivered</option>
+                  <option>Refunded</option>
+                  <option>Complete</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px">Tracking #</td>
+              <td class="position-padding-0">
+                <input type="text" class="input input-large" />
+              </td>
+            </tr>
+            <tr>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px">Refund</td>
+              <td class="position-padding-0">
+                <input type="text" class="input input-medium" placeholder="Enter amount in btc" /> <button class="button-primary">Send</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button class="button-first modal-purchase-release-funds visibility-hidden">Release funds to seller</button>
+          <button class="button-first modal-purchase-request-funds visibility-hidden">Request funds from buyer</button>
+          <button class="modal-purchase-dispute">Dispute transaction</button>
+        </div>
+      </div>
+
+      <div class="modal-trade-flow visibility-hidden">
+        <div class="modal-photo"><div class="modal-photo-shadow"></div><div class="modal-item-price modal-item-price-style"></div></div>
+        <div class="modal-header">Payment type</div>
+        <div class="modal-trade-flow-payment-type">
+          <div class="modal-body">
+            <table>
+              <tr>
+                <td colspan="3" class="type-line-height-16px type-opacity type-weight-medium " style="padding: 0 16px 16px 16px">There are two payment options: moderated and direct. Using a moderator ensures both parties fulfill their end of the agreement prior to the funds transfering.</td>
+              </tr>
+              <tr>
+                <td class="position-padding-left-16px position-padding-right-9px"><input type="radio" checked /></td>
+                <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px"><div class="avatar"></div></td>
+                <td>
+                  <div class="type-weight-medium position-margin-bottom-3px type-size-14px ">Moderated (1% tip will be included)</div>
+                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium "><span class="modal-store-name"></span> uses @ob1 as their trusted moderator to safely transfer the funds between you and them.</div>
+                </td>
+              </tr>
+              <tr>
+                <td class="position-padding-left-16px position-padding-right-9px"><input type="radio" /></td>
+                <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px"><div class="avatar direct-avatar"></div></td>
+                <td>
+                  <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Direct</div>
+                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium">Send funds directly to <span class="modal-store-name"></span></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="button-first trade-close">Cancel</button>
+            <button class="trade-payment-type-next">Next</button>
+          </div>
+        </div>
+
+        <div class="modal-trade-flow-address visibility-hidden">
+          <div class="modal-body">
+            <table style="margin: 0">
+              <tr class="position-height-72px">
+                <td class="position-width-42px"><input type="radio" class="position-margin-left-16px " checked /></td>
+                <td>
+                  <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                  <div class="type-weight-medium type-opacity">8458 Belmont Road Chicago, IL 60654</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="button-first trade-back-to-payment">Back</button>
+            <button class="trade-address-next">Next</button>
+          </div>
+        </div>
+
+        <div class="modal-trade-flow-summary visibility-hidden">
+          <div class="modal-body">
+            <table style="margin: 0">
+              <tr class="position-height-72px">
+                <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px"><div class="avatar direct-avatar position-margin-left-16px"></div></td>
+                <td class="position-width-100">
+                  <div class="modal-item-avatar position-float-left"></div>
+                  <div class="position-float-left type-weight-medium position-margin-bottom-3px">
+                    <div class="modal-item position-margin-bottom-3px"></div>
+                    <div class="type-weight-medium type-opacity">Sold by <span class="modal-store-name"></span></div>
+                  </div>
+                  <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px"><span class="modal-item-price"></span></div>
+                </td>
+              </tr>
+              <tr class="position-height-72px">
+                <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px"><div class="avatar direct-avatar position-margin-left-16px"></div></td>
+                <td class="position-width-100">
+                  <div class="modal-item-avatar position-float-left"></div>
+                  <div class="position-float-left type-weight-medium position-margin-bottom-3px">
+                    <div class="position-margin-bottom-3px">Delivery</div>
+                    <div class="type-weight-medium type-opacity">Service by <span class="modal-store-name"></span></div>
+                  </div>
+                  <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px">.0002 btc ($5 USD)</div>
+                </td>
+              </tr>
+              <tr class="position-height-72px">
+                <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px"><div class="avatar position-margin-left-16px"></div></td>
+                <td class="position-width-100">
+                  <div class="modal-item-avatar position-float-left"></div>
+                  <div class="position-float-left type-weight-medium position-margin-bottom-3px">
+                    <div class="position-margin-bottom-3px">Secure transaction</div>
+                    <div class="type-weight-medium type-opacity">Service by @ob1</div>
+                  </div>
+                  <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px">.00016 btc ($3 USD)</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="button-first trade-back-to-address">Back</button>
+            <button class="trade-done">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="header">
+      <ul class="window-controls">
+        <li class="window-close" title="Close"></li>
+        <li class="window-minimize" title="Minimize"></li>
+        <li class="window-maximize" title="Maximize"></li>
+      </ul>
+      <div class="navigation-controls position-float-left">
+        <ul>
+          <li class="navigation-controls-back"><span><</span></li>
+          <li class="navigation-controls-forward"><span>></span></li>
+        </ul>
+      </div>
+      <input type="text" class="input input-search position-float-left" placeholder="Enter @handle or #keyword to search" />
+      <ul class="control-panel position-float-left">
+        <li class="control-panel-discover">@</li>
+        <li class="control-panel-user" style="background: url(https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg) 50% 50% / cover no-repeat"></li>
+      </ul>
+    </section>
+
+    <div class="menu visibility-hidden">
+      <ul>
+        <li class="menu-heading">DISCOVER</li>
+        <li class="menu-home">Items</li>
+        <li class="menu-services">Services</li>
+        <li class="menu-users">Users</li>
+        <li class="menu-stores">Vendors</li>
+      </ul>
+    </div>
+
+    <div class="user-menu visibility-hidden">
+      <ul>
+        <li class="menu-heading">@WOLF</li>
+        <li class="menu-store">Configuration</li>
+        <li class="menu-settings">Settings</li>
+        <li class="menu-transaction">Transactions</li>
+        <li class="menu-logout">Log out</li>
+      </ul>
+    </div>
+
+    <div class="store-banner visibility-hidden">
+      <div style="width: 1100px; margin: auto">
+        <div class="store-avatar position-float-left"></div>
+        <div class="position-float-left">
+          <h1 class="store-name"></h1>
+          <div class="store-description"></div>
+        </div>
+        <div class="store-buttons position-float-right">
+          <button class="button-primary store-home position-margin-right-2px">Items</button>
+          <button class="button-primary store-dets position-margin-right-2px">Details</button>
+          <button class="button-primary position-margin-right-2px">Services</button>
+          <button class="button-primary store-message">Message</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="store-banner-2 visibility-hidden">
+      <div style="width: 1100px; margin: auto">
+        <div class="store-avatar position-float-left"></div>
+        <div class="position-float-left">
+          <h1 class="store-name"></h1>
+          <div class="store-description"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Chat -->
+    <chat-window></chat-window>
+
+    <section id="main">
+      <!-- Connecting -->
+      <div class="connecting type-align-center" style="margin-top: 13%">
+        <img src="assets/img/icon-large.png" style="width: 90px" class="ob-icon position-margin-bottom-5px" /><br />
+        <img class="loading-icon visibility-hidden position-margin-bottom-5px" /><br />
+        <h1 class="loading-message position-margin-bottom-10px type-weight-light">Connecting to stores...</h1>
+        <div id="spinner"></div>
+        <button class="button-primary button-try-again visibility-hidden">Try again</button>
+      </div>
+
+      <!-- Transacttions -->
+      <div class="transactions visibility-hidden">
+        <div>
+          <h1 class="position-float-left position-margin-top-10px transactions-h1">Purchases</h1>
+          <select class="select position-float-right position-margin-bottom-15px position-width-130px transactions-select">
+            <option value="purchases">Purchases</option>
+            <option value="sales">Sales</option>
+            <option value="cases">Cases</option>
+          </select>
+          <table class="list-view position-margin-top-15px transactions-purchases">
+            <thead>
+              <tr>
+                <td>Item</td>
+                <td>Date</td>
+                <td>Seller</td>
+                <td>Total</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <table class="list-view position-margin-top-15px transactions-sales visibility-hidden">
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>Date</td>
+                <td>Buyer</td>
+                <td>Total</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <table class="list-view position-margin-top-15px transactions-cases visibility-hidden">
+            <thead>
+              <tr>
+                <td>Date</td>
+                <td>Buyer</td>
+                <td>Seller</td>
+                <td>Status</td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Items -->
+      <div class="items visibility-hidden"></div>
+
+      <!-- Stores -->
+      <div class="store visibility-hidden">
+        <div class="store-items"></div>
+        <div class="store-details visibility-hidden">
+          <table>
+            <tr>
+              <td class="label">Website</td>
+              <td class="value store-details-website"></td>
+            </tr>
+            <tr>
+              <td class="label">Email</td>
+              <td class="value store-details-email"></td>
+            </tr>
+            <tr>
+              <td class="label">OpenBazaar Public Key</td>
+              <td class="value store-details-public-key"></td>
+            </tr>
+            <tr>
+              <td class="label">Reputation Pledge</td>
+              <td class="value store-details-pledge"></td>
+            </tr>
+            <tr>
+              <td class="label">PGP Key</td>
+              <td class="value store-details-pgp-key"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="store-settings visibility-hidden">
+        <div class="store-settings-items">
+          <div class="settings-item settings-item-new" data-type="new">
+            <div class="settings-item-image opacity-0" data-type="new"><div class="settings-add-new">+</div></div>
+            <div class="settings-item-meta-data" data-type="new">
+              <div class="position-padding-10px">
+                <div class="settings-item-name settings-item-name-new" data-type="new">Add Item</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="store-settings-footer">
+          <div class="position-float-left position-margin-right-15px position-margin-left-15px position-margin-top-16px type-size-14px">Style</div>
+          <div class="store-settings-color store-settings-primary-color"></div>
+          <div class="store-settings-color store-settings-secondary-color"></div>
+          <div class="store-settings-color store-settings-font-color"></div>
+          <div class="store-settings-buttons">
+            <button class="store-settings-cancel button-primary type-weight-light">Cancel</button>
+            <button class="store-settings-save button-primary">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item detail -->
+      <div class="item-detail visibility-hidden">
+        <div class="item-detail-image"></div>
+        <div class="item-detail-meta">
+          <h1 class="item-detail-name"></h1>
+          <div class="item-detail-pricing">
+            <div class="item-detail-price position-inline-block position-margin-right-10px"></div>
+            <div class="item-detail-shipping position-inline-block position-margin-right-10px"></div>
+            <div class="item-detail-condition position-inline-block position-margin-right-10px"></div>
+            <div class="item-detail-type position-inline-block"></div>
+          </div>
+          <div class="item-detail-description"></div>
+          <div class="item-detail-buttons">
+            <div class="item-detail-quantity position-float-left position-margin-right-5px "><input class="input input-item-detail-quantity input-quantity" value="1" /></div>
+            <button class="button-primary item-detail-buy visibility-hidden position-float-left">Buy</button>
+            <button class="button-primary item-detail-sold-out visibility-hidden position-float-left">Sold out</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
