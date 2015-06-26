@@ -1,0 +1,40 @@
+<dom-module id="vendor-page">
+
+  <link href="/assets/css/vendor.css" rel="stylesheet">
+
+  <template>
+    <div class="vendor visibility-hidden">
+      <div class="vendor-items"></div>
+      <div class="vendor-details visibility-hidden">
+        <table>
+          <tr>
+            <td class="label">Website</td>
+            <td class="value vendor-details-website"></td>
+          </tr>
+          <tr>
+            <td class="label">Email</td>
+            <td class="value vendor-details-email"></td>
+          </tr>
+          <tr>
+            <td class="label">OpenBazaar Public Key</td>
+            <td class="value vendor-details-public-key"></td>
+          </tr>
+          <tr>
+            <td class="label">Reputation Pledge</td>
+            <td class="value vendor-details-pledge"></td>
+          </tr>
+          <tr>
+            <td class="label">PGP Key</td>
+            <td class="value vendor-details-pgp-key"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'vendor-page'});
+  </script>
+  <script src="/assets/js/objects/vendor.js"></script>
+
+</dom-module>

@@ -1,0 +1,31 @@
+<dom-module id="contract-details">
+
+  <link href="/assets/css/contract.css" rel="stylesheet">
+
+  <template>
+    <div class="contract-detail visibility-hidden">
+      <div class="contract-detail-image"></div>
+      <div class="contract-detail-meta">
+        <h1 class="contract-detail-name"></h1>
+        <div class="contract-detail-pricing">
+          <div class="contract-detail-price position-inline-block position-margin-right-10px"></div>
+          <div class="contract-detail-shipping position-inline-block position-margin-right-10px"></div>
+          <div class="contract-detail-condition position-inline-block position-margin-right-10px"></div>
+          <div class="contract-detail-type position-inline-block"></div>
+        </div>
+        <div class="contract-detail-description"></div>
+        <div class="contract-detail-buttons">
+          <div class="contract-detail-quantity position-float-left position-margin-right-5px "><input class="input input-contract-detail-quantity input-quantity" value="1" /></div>
+          <button class="button-primary contract-detail-buy visibility-hidden position-float-left">Buy</button>
+          <button class="button-primary contract-detail-sold-out visibility-hidden position-float-left">Sold out</div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'contract-details'});
+  </script>
+  <script src="/assets/js/objects/contract.js"></script>
+
+</dom-module>

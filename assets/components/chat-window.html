@@ -1,11 +1,6 @@
 <dom-module id="chat-window">
 
-  <style>
-    /* You can put any styles in here and they will stay local to the element. */
-    .chat:hover {
-      outline: 1px solid #ccc;
-    }
-  </style>
+  <link href="/assets/css/chat.css" rel="stylesheet">
 
   <template>
     <div class="chat">
@@ -20,7 +15,7 @@
       </div>
       <div class="chat-conversation-detail visibility-hidden">
         <div class="chat-conversation-detail-body"></div>
-        <input class="input input input-chat-new-message" placeholder="Enter message..." data-id="" />
+        <input class="input input-chat-new-message" placeholder="Enter message..." data-id="" />
       </div>
     </div>
   </template>
@@ -28,6 +23,6 @@
   <script>
     Polymer({is: 'chat-window'});
   </script>
+  <script src="/assets/js/objects/chat.js"></script>
 
 </dom-module>
-

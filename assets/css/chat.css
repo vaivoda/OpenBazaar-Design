@@ -1,0 +1,198 @@
+.chat {
+  background: #252525;
+  background: linear-gradient(to right, #2D2D2D 0%, #2D2D2D 16.7%,#252525 16.7%,#252525 100%);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: -310px;
+  font-family: "font-medium";
+  font-size: 13px;
+  height: 360px;
+  opacity: .99;
+  position: fixed;
+  right: 32px;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 290px;
+  z-index: 1300;
+}
+
+.chat-conversation-detail {
+  bottom: -2px;
+  height: 309px;
+  left: 48px;
+  position: absolute;
+  text-align: left;
+  width: 242px;
+}
+
+.chat-conversation-detail-body {
+  bottom: 50px;
+  max-height: 259px;
+  min-height: 30px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0 6px;
+  position: absolute;
+  width: 225px;
+}
+
+.chat-title {
+  float: left;
+}
+
+.chat-count {
+  background: orange;
+  border-radius: 13px;
+  height: 26px;
+  float: right;
+  line-height: 28px;
+  margin: auto;
+  margin-top: 12px;
+  margin-right: 10px;
+  padding: 0;
+  text-align: center;
+  width: 26px;
+}
+
+.chat-message-count {
+  background: orange;
+  border-radius: 8px;
+  font-size: 11px;
+  height: 16px;
+  left: 24px;
+  line-height: 16px;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: -1px;
+  width: 16px;
+}
+
+.chat-conversation-detail-flip .chat-conversation-detail-avatar {
+  float: right;
+}
+
+.chat-conversation-detail-flip .chat-conversation-detail-message{
+  text-align: right;
+}
+
+.chat-conversations{
+  cursor: pointer;
+  height: 310px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  top: 51px;
+  width: 100%;
+}
+.chat-conversations li {
+  clear: both;
+  height: 45px;
+  line-height: 45px;
+}
+.chat-avatar {
+  background-size: cover;
+  border-radius: 19px;
+  float: left;
+  height: 34px;
+  margin-left: 7px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 34px;
+}
+.chat-avatar:hover {
+  opacity: .80 !important;
+}
+
+.chat-conversation-detail-avatar {
+  border-radius: 15px;
+  float: left;
+  height: 30px;
+  margin-left: 7px;
+  position: relative;
+  width: 30px;
+}
+
+.chat-conversation-detail-message {
+  float: left;
+  font-size: 12px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  margin-left: 6px;
+  min-height: 30px;
+  width: 180px;
+
+}
+
+.chat-read .chat-avatar {
+  opacity: .5;
+}
+
+.chat-message {
+  border-bottom: solid 1px #2D2D2D;
+  float: left;
+  height: 50px;
+  color: #cfcfcf;
+  padding-left: 20px;
+  line-height: 34px;
+  text-align: left;
+  font-size: 12px;
+  width: 214px;
+}
+
+.chat-header {
+  background: #1D1D1D;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "font-medium";
+  font-size: 13px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+  position: fixed;
+  padding-left: 10px;
+  text-align: left;
+  width: 280px;
+}
+
+.chat-read {
+  color: #757575;
+  font-size: 12px;
+}
+
+.chat-name {
+  color: #fff;
+  height: 12px;
+  margin-bottom: 2px;
+  font-family: "font-medium";
+}
+
+.chat-read .chat-name, .chat-read .chat-message {
+  color: #757575 !important;
+  font-size: 12px;
+  font-family: "font-medium";
+}
+
+.chat-close, .chat-new {
+  margin-right: 8px;
+  margin-top: 13px;
+  position: relative;
+}
+
+.chat-new {
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.chat-back {
+  margin-right: 6px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.chat.blur {
+  -webkit-filter: blur(4px);
+}

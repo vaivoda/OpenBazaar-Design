@@ -118,7 +118,7 @@ var chats = [
 	]
 }
 ];
-var stores = [
+var vendors = [
   {
     "avatar": "https://www.rhythmandpoetry.net/cover-lone.png",
     "name": "Rhythm & Poetry",
@@ -133,7 +133,7 @@ var stores = [
     "pgpKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----<br />Version: GnuPG v1mQINBFV6Z7YBEADnzmU/DP/hr/WuOcO2ic9lhhPBEFJTtRS6/m4mnwfkpiwR//fQM2SG5S47NRs/n3bKJw6gKTU9WEE+UBaXTEeTUd/W/e8e8TriIiyY0SUd6Ci7ajwV8OmUIbaW2L72HTxCqP7rFRCsx+wve5UNIJhOTwII13nINvU8JlKeAVBQ/6hbUw6Y63XqbLQz+EEIxbX2Nm6XHcTpAkINAcABrwm8zVgaQcDuAjjy3J+gXZx6TNQ7OGn5s8f7z+c5UAOePxM2Qp+3s77rXlQEIak62CtImIMHVpEG6ELTwVTJTFzYpOaH1AsqoPjJpb1L432PmcISWco9wdCVDHzhDzsr5w07zxnr0wUk4o5zBs3q1OVG4jSwoIahU3aLM4RaambLjvnPM9ci5xm4tmN9cc8FkDsUnvMyGZp4QirMIoklsl5lXWyZ/NGdFBrXGK31A6Qzv8okFMu496L7dSsZ1I2mX5CFvhfVhiPn3fSYnL9SraohaT9F6z6Ux6fEfNu5kHaJIbuQcPJd5mTPryXSol5YRXK+F/lp/tUmFaNXJS6CTZ4xuINicGefvxhIvryduMyoGITk5ZednwSef1lBtVfgiSBA5b30Y7DxMp4sMuYogRMoBFEQRpkvuKVwxtttT7GZuyNYiu6Pb7pyTFCZ61J0VbzQ9C+u3F9avnuvck3RNUoKpQARAQABtEVBdXRvZ2VuZXJhdGVkIEtleSAoQXV0b2dlbmVyYXRlZCBieSBPcGVuIEJhemFhcikgPHBncEBvcGVuYmF6YWFyLm9yZz6JAjgEEwECACIFAlV6Z7YCGy8GCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEMS3I86XKvrIfkIP/2UlsREb3P8V0mw+UQfx1GPGT/JVOoP4FLfKuambbLv3uuBFic2YnEcBXBvMWmVQAQv0XTj/fJfhDOF/OpYYbHiv4zyYntSMotephSSMHp/vdicveaVbvBs8D2TP6CGL78dGZefUCwWPLOCSFsHnmUzNdrZFBdfYoiR07A0udQJDqAsv0f9Qw6iCGJ6On47be26FkHZvKURDGTyX6UWhTyHw2WhKSq3tqmaKnjLkr2Vh1OiFuyBvA94AxO0lLtxesG4rP+OzGeAnsoCukCyhrxGvMzRSC1asd0MzG5TgVZncEffwzlB2fhbU7BpgIAbDcnVRPVxWhSH9OQVp60V4/mvinzEZu4Ish7Jpz7m1HK4POYhkIo05aK3D/uKuOrl/kkYwsy4TwmqwcA56pDd7TrpCWjb9Flo5VdabIFWR37UeNDnOfmaAJMC2HyBAHHmYO6rnnvYJPVobmlW66g8zjwWDkV9JU3wfxaB7YjkeSR5r/sANhStLPpX5JopY/FtQ1gnFAbJnl5xwNk07MPn33dvmez5Cio++gn9xMZsxrJpNSskkkPndpOXrL1ns/JS4fBO1yfjWcezs6ScBoDmpQBoqc6v/7NTVI1Q0E+ZaneUk9tn+NOzif74cSNRtWkcY21Iao11rssCK4SpMWDpqD0etkY7hD5TQkfQOLIvPfHGd=eRxO<br />-----END PGP PUBLIC KEY BLOCK-----",
     "handle": "",
     "colortext": "#fff",
-    "items": [
+    "contracts": [
 	    {
 	    	"id": 1,
 	    	"name": "Selekt Few - MD (Music)",
@@ -172,7 +172,7 @@ var stores = [
     "pgpKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----<br />Version: GnuPG v1mQINBFV6Z7YBEADnzmU/DP/hr/WuOcO2ic9lhhPBEFJTtRS6/m4mnwfkpiwR//fQM2SG5S47NRs/n3bKJw6gKTU9WEE+UBaXTEeTUd/W/e8e8TriIiyY0SUd6Ci7ajwV8OmUIbaW2L72HTxCqP7rFRCsx+wve5UNIJhOTwII13nINvU8JlKeAVBQ/6hbUw6Y63XqbLQz+EEIxbX2Nm6XHcTpAkINAcABrwm8zVgaQcDuAjjy3J+gXZx6TNQ7OGn5s8f7z+c5UAOePxM2Qp+3s77rXlQEIak62CtImIMHVpEG6ELTwVTJTFzYpOaH1AsqoPjJpb1L432PmcISWco9wdCVDHzhDzsr5w07zxnr0wUk4o5zBs3q1OVG4jSwoIahU3aLM4RaambLjvnPM9ci5xm4tmN9cc8FkDsUnvMyGZp4QirMIoklsl5lXWyZ/NGdFBrXGK31A6Qzv8okFMu496L7dSsZ1I2mX5CFvhfVhiPn3fSYnL9SraohaT9F6z6Ux6fEfNu5kHaJIbuQcPJd5mTPryXSol5YRXK+F/lp/tUmFaNXJS6CTZ4xuINicGefvxhIvryduMyoGITk5ZednwSef1lBtVfgiSBA5b30Y7DxMp4sMuYogRMoBFEQRpkvuKVwxtttT7GZuyNYiu6Pb7pyTFCZ61J0VbzQ9C+u3F9avnuvck3RNUoKpQARAQABtEVBdXRvZ2VuZXJhdGVkIEtleSAoQXV0b2dlbmVyYXRlZCBieSBPcGVuIEJhemFhcikgPHBncEBvcGVuYmF6YWFyLm9yZz6JAjgEEwECACIFAlV6Z7YCGy8GCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEMS3I86XKvrIfkIP/2UlsREb3P8V0mw+UQfx1GPGT/JVOoP4FLfKuambbLv3uuBFic2YnEcBXBvMWmVQAQv0XTj/fJfhDOF/OpYYbHiv4zyYntSMotephSSMHp/vdicveaVbvBs8D2TP6CGL78dGZefUCwWPLOCSFsHnmUzNdrZFBdfYoiR07A0udQJDqAsv0f9Qw6iCGJ6On47be26FkHZvKURDGTyX6UWhTyHw2WhKSq3tqmaKnjLkr2Vh1OiFuyBvA94AxO0lLtxesG4rP+OzGeAnsoCukCyhrxGvMzRSC1asd0MzG5TgVZncEffwzlB2fhbU7BpgIAbDcnVRPVxWhSH9OQVp60V4/mvinzEZu4Ish7Jpz7m1HK4POYhkIo05aK3D/uKuOrl/kkYwsy4TwmqwcA56pDd7TrpCWjb9Flo5VdabIFWR37UeNDnOfmaAJMC2HyBAHHmYO6rnnvYJPVobmlW66g8zjwWDkV9JU3wfxaB7YjkeSR5r/sANhStLPpX5JopY/FtQ1gnFAbJnl5xwNk07MPn33dvmez5Cio++gn9xMZsxrJpNSskkkPndpOXrL1ns/JS4fBO1yfjWcezs6ScBoDmpQBoqc6v/7NTVI1Q0E+ZaneUk9tn+NOzif74cSNRtWkcY21Iao11rssCK4SpMWDpqD0etkY7hD5TQkfQOLIvPfHGd=eRxO<br />-----END PGP PUBLIC KEY BLOCK-----",
     "handle": "pcshop",
     "colortext": "#fff",
-    "items": [
+    "contracts": [
 	    {
 	    	"id": 101,
 	    	"name": "iShower Bluetooth Speaker",
@@ -299,7 +299,7 @@ var stores = [
     "pgpKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----<br />Version: GnuPG v1mQINBFV6Z7YBEADnzmU/DP/hr/WuOcO2ic9lhhPBEFJTtRS6/m4mnwfkpiwR//fQM2SG5S47NRs/n3bKJw6gKTU9WEE+UBaXTEeTUd/W/e8e8TriIiyY0SUd6Ci7ajwV8OmUIbaW2L72HTxCqP7rFRCsx+wve5UNIJhOTwII13nINvU8JlKeAVBQ/6hbUw6Y63XqbLQz+EEIxbX2Nm6XHcTpAkINAcABrwm8zVgaQcDuAjjy3J+gXZx6TNQ7OGn5s8f7z+c5UAOePxM2Qp+3s77rXlQEIak62CtImIMHVpEG6ELTwVTJTFzYpOaH1AsqoPjJpb1L432PmcISWco9wdCVDHzhDzsr5w07zxnr0wUk4o5zBs3q1OVG4jSwoIahU3aLM4RaambLjvnPM9ci5xm4tmN9cc8FkDsUnvMyGZp4QirMIoklsl5lXWyZ/NGdFBrXGK31A6Qzv8okFMu496L7dSsZ1I2mX5CFvhfVhiPn3fSYnL9SraohaT9F6z6Ux6fEfNu5kHaJIbuQcPJd5mTPryXSol5YRXK+F/lp/tUmFaNXJS6CTZ4xuINicGefvxhIvryduMyoGITk5ZednwSef1lBtVfgiSBA5b30Y7DxMp4sMuYogRMoBFEQRpkvuKVwxtttT7GZuyNYiu6Pb7pyTFCZ61J0VbzQ9C+u3F9avnuvck3RNUoKpQARAQABtEVBdXRvZ2VuZXJhdGVkIEtleSAoQXV0b2dlbmVyYXRlZCBieSBPcGVuIEJhemFhcikgPHBncEBvcGVuYmF6YWFyLm9yZz6JAjgEEwECACIFAlV6Z7YCGy8GCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEMS3I86XKvrIfkIP/2UlsREb3P8V0mw+UQfx1GPGT/JVOoP4FLfKuambbLv3uuBFic2YnEcBXBvMWmVQAQv0XTj/fJfhDOF/OpYYbHiv4zyYntSMotephSSMHp/vdicveaVbvBs8D2TP6CGL78dGZefUCwWPLOCSFsHnmUzNdrZFBdfYoiR07A0udQJDqAsv0f9Qw6iCGJ6On47be26FkHZvKURDGTyX6UWhTyHw2WhKSq3tqmaKnjLkr2Vh1OiFuyBvA94AxO0lLtxesG4rP+OzGeAnsoCukCyhrxGvMzRSC1asd0MzG5TgVZncEffwzlB2fhbU7BpgIAbDcnVRPVxWhSH9OQVp60V4/mvinzEZu4Ish7Jpz7m1HK4POYhkIo05aK3D/uKuOrl/kkYwsy4TwmqwcA56pDd7TrpCWjb9Flo5VdabIFWR37UeNDnOfmaAJMC2HyBAHHmYO6rnnvYJPVobmlW66g8zjwWDkV9JU3wfxaB7YjkeSR5r/sANhStLPpX5JopY/FtQ1gnFAbJnl5xwNk07MPn33dvmez5Cio++gn9xMZsxrJpNSskkkPndpOXrL1ns/JS4fBO1yfjWcezs6ScBoDmpQBoqc6v/7NTVI1Q0E+ZaneUk9tn+NOzif74cSNRtWkcY21Iao11rssCK4SpMWDpqD0etkY7hD5TQkfQOLIvPfHGd=eRxO<br />-----END PGP PUBLIC KEY BLOCK-----",
     "handle": "cookies",
     "colortext": "#fff",
-    "items": []
+    "contracts": []
   },
   {
     "avatar": "https://dov5cor25da49.cloudfront.net/products/2538/636x460shirt_guys_01.jpg",
@@ -315,7 +315,7 @@ var stores = [
     "pgpKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----<br />Version: GnuPG v1mQINBFV6Z7YBEADnzmU/DP/hr/WuOcO2ic9lhhPBEFJTtRS6/m4mnwfkpiwR//fQM2SG5S47NRs/n3bKJw6gKTU9WEE+UBaXTEeTUd/W/e8e8TriIiyY0SUd6Ci7ajwV8OmUIbaW2L72HTxCqP7rFRCsx+wve5UNIJhOTwII13nINvU8JlKeAVBQ/6hbUw6Y63XqbLQz+EEIxbX2Nm6XHcTpAkINAcABrwm8zVgaQcDuAjjy3J+gXZx6TNQ7OGn5s8f7z+c5UAOePxM2Qp+3s77rXlQEIak62CtImIMHVpEG6ELTwVTJTFzYpOaH1AsqoPjJpb1L432PmcISWco9wdCVDHzhDzsr5w07zxnr0wUk4o5zBs3q1OVG4jSwoIahU3aLM4RaambLjvnPM9ci5xm4tmN9cc8FkDsUnvMyGZp4QirMIoklsl5lXWyZ/NGdFBrXGK31A6Qzv8okFMu496L7dSsZ1I2mX5CFvhfVhiPn3fSYnL9SraohaT9F6z6Ux6fEfNu5kHaJIbuQcPJd5mTPryXSol5YRXK+F/lp/tUmFaNXJS6CTZ4xuINicGefvxhIvryduMyoGITk5ZednwSef1lBtVfgiSBA5b30Y7DxMp4sMuYogRMoBFEQRpkvuKVwxtttT7GZuyNYiu6Pb7pyTFCZ61J0VbzQ9C+u3F9avnuvck3RNUoKpQARAQABtEVBdXRvZ2VuZXJhdGVkIEtleSAoQXV0b2dlbmVyYXRlZCBieSBPcGVuIEJhemFhcikgPHBncEBvcGVuYmF6YWFyLm9yZz6JAjgEEwECACIFAlV6Z7YCGy8GCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEMS3I86XKvrIfkIP/2UlsREb3P8V0mw+UQfx1GPGT/JVOoP4FLfKuambbLv3uuBFic2YnEcBXBvMWmVQAQv0XTj/fJfhDOF/OpYYbHiv4zyYntSMotephSSMHp/vdicveaVbvBs8D2TP6CGL78dGZefUCwWPLOCSFsHnmUzNdrZFBdfYoiR07A0udQJDqAsv0f9Qw6iCGJ6On47be26FkHZvKURDGTyX6UWhTyHw2WhKSq3tqmaKnjLkr2Vh1OiFuyBvA94AxO0lLtxesG4rP+OzGeAnsoCukCyhrxGvMzRSC1asd0MzG5TgVZncEffwzlB2fhbU7BpgIAbDcnVRPVxWhSH9OQVp60V4/mvinzEZu4Ish7Jpz7m1HK4POYhkIo05aK3D/uKuOrl/kkYwsy4TwmqwcA56pDd7TrpCWjb9Flo5VdabIFWR37UeNDnOfmaAJMC2HyBAHHmYO6rnnvYJPVobmlW66g8zjwWDkV9JU3wfxaB7YjkeSR5r/sANhStLPpX5JopY/FtQ1gnFAbJnl5xwNk07MPn33dvmez5Cio++gn9xMZsxrJpNSskkkPndpOXrL1ns/JS4fBO1yfjWcezs6ScBoDmpQBoqc6v/7NTVI1Q0E+ZaneUk9tn+NOzif74cSNRtWkcY21Iao11rssCK4SpMWDpqD0etkY7hD5TQkfQOLIvPfHGd=eRxO<br />-----END PGP PUBLIC KEY BLOCK-----",
     "handle": "shirts",
     "colortext": "#696969",
-    "items": [
+    "contracts": [
 	    {
 	    	"id": 110,
 	    	"name": "Gray graphic t-shirt",
@@ -335,8 +335,8 @@ var stores = [
 var purchases = [
 {
 	"id": "1",
-	"item-name": "Night Ice Crystal LED Earrings",
-	"item-image": "http://thefancy-media-ec1.thefancy.com/310/20130205/291025669263990123_cc5023704a82.jpg",
+	"contract-name": "Night Ice Crystal LED Earrings",
+	"contract-image": "http://thefancy-media-ec1.thefancy.com/310/20130205/291025669263990123_cc5023704a82.jpg",
 	"date": "Jun 15th",
 	"vendor": "@pcshop",
 	"guid": "369eb3b406b2d5c98ed407a3ec129ab9e27be123",
@@ -355,8 +355,8 @@ var purchases = [
 },
 {
 	"id": "2",
-	"item-name": "Qlocktwo Touch Clock",
-	"item-image": "http://thefancy-media-ec2.thefancy.com/310/20110907/260959477_752f137624b7.jpg",
+	"contract-name": "Qlocktwo Touch Clock",
+	"contract-image": "http://thefancy-media-ec2.thefancy.com/310/20110907/260959477_752f137624b7.jpg",
 	"date": "Jun 13th",
 	"vendor": "@pcshop",
 	"guid": "369eb3b406b2d5c98ed407a3ec129ab9e27be123",
@@ -375,8 +375,8 @@ var purchases = [
 },
 {
 	"id": "3",
-	"item-name": "Qlocktwo Watch by Biegert & Funk",
-	"item-image": "http://thefancy-media-ec4.thefancy.com/310/20120324/295214765_bcc8466f5562.jpg",
+	"contract-name": "Qlocktwo Watch by Biegert & Funk",
+	"contract-image": "http://thefancy-media-ec4.thefancy.com/310/20120324/295214765_bcc8466f5562.jpg",
 	"date": "Jun 11th",
 	"vendor": "@pcshop",
 	"guid": "369eb3b406b2d5c98ed407a3ec129ab9e27be123",
@@ -395,8 +395,8 @@ var purchases = [
 },
 {
 	"id": "4",
-	"item-name": "Polaroid Z2300 Instant Digital",
-	"item-image": "http://thefancy-media-ec4.thefancy.com/310/20120626/128787565556797991_a92531c51ea4.jpeg",
+	"contract-name": "Polaroid Z2300 Instant Digital",
+	"contract-image": "http://thefancy-media-ec4.thefancy.com/310/20120626/128787565556797991_a92531c51ea4.jpeg",
 	"date": "Jun 9th",
 	"vendor": "@pcshop",
 	"vendor-avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPH-XfXxbxMTizvaNTCZuugMAQeOErj8-7DcjloR9MgBAw6xxuQQ",
@@ -414,8 +414,8 @@ var purchases = [
 },
 {
 	"id": "5",
-	"item-name": "Macbook Lazerwood Keys",
-	"item-image": "http://thefancy-media-ec3.thefancy.com/310/20121113/230186168505862475_38f5d0da1c7f.png",
+	"contract-name": "Macbook Lazerwood Keys",
+	"contract-image": "http://thefancy-media-ec3.thefancy.com/310/20121113/230186168505862475_38f5d0da1c7f.png",
 	"date": "Jun 7th",
 	"vendor": "@pcshop",
 	"vendor-avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPH-XfXxbxMTizvaNTCZuugMAQeOErj8-7DcjloR9MgBAw6xxuQQ",	
@@ -433,8 +433,8 @@ var purchases = [
 },
 {
 	"id": "6",
-	"item-name": "The Avengers USB Sticks",
-	"item-image": "http://thefancy-media-ec4.thefancy.com/310/20120506/91344667945208211_c9f716d5c4d7.jpg",
+	"contract-name": "The Avengers USB Sticks",
+	"contract-image": "http://thefancy-media-ec4.thefancy.com/310/20120506/91344667945208211_c9f716d5c4d7.jpg",
 	"date": "Jun 5th",
 	"vendor": "@pcshop",
 	"vendor-avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPH-XfXxbxMTizvaNTCZuugMAQeOErj8-7DcjloR9MgBAw6xxuQQ",
@@ -455,8 +455,8 @@ var purchases = [
 var sales = [
 {
 	"id": "1",
-	"item-name": "Night Ice Crystal LED Earrings",
-	"item-image": "http://thefancy-media-ec1.thefancy.com/310/20130205/291025669263990123_cc5023704a82.jpg",
+	"contract-name": "Night Ice Crystal LED Earrings",
+	"contract-image": "http://thefancy-media-ec1.thefancy.com/310/20130205/291025669263990123_cc5023704a82.jpg",
 	"date": "Jun 15th",
 	"vendor": "@pcshop",
 	"guid": "369eb3b406b2d5c98ed407a3ec129ab9e27be123",
@@ -475,8 +475,8 @@ var sales = [
 },
 {
 	"id": "2",
-	"item-name": "Qlocktwo Touch Clock",
-	"item-image": "http://thefancy-media-ec2.thefancy.com/310/20110907/260959477_752f137624b7.jpg",
+	"contract-name": "Qlocktwo Touch Clock",
+	"contract-image": "http://thefancy-media-ec2.thefancy.com/310/20110907/260959477_752f137624b7.jpg",
 	"date": "Jun 13th",
 	"vendor": "@pcshop",
 	"guid": "369eb3b406b2d5c98ed407a3ec129ab9e27be123",
@@ -495,8 +495,8 @@ var sales = [
 },
 {
 	"id": "3",
-	"item-name": "Qlocktwo Watch by Biegert & Funk",
-	"item-image": "http://thefancy-media-ec4.thefancy.com/310/20120324/295214765_bcc8466f5562.jpg",
+	"contract-name": "Qlocktwo Watch by Biegert & Funk",
+	"contract-image": "http://thefancy-media-ec4.thefancy.com/310/20120324/295214765_bcc8466f5562.jpg",
 	"date": "Jun 11th",
 	"vendor": "@pcshop",
 	"guid": "369eb3b406b2d5c98ed407a3ec129ab9e27be123",
@@ -515,8 +515,8 @@ var sales = [
 },
 {
 	"id": "4",
-	"item-name": "Polaroid Z2300 Instant Digital",
-	"item-image": "http://thefancy-media-ec4.thefancy.com/310/20120626/128787565556797991_a92531c51ea4.jpeg",
+	"contract-name": "Polaroid Z2300 Instant Digital",
+	"contract-image": "http://thefancy-media-ec4.thefancy.com/310/20120626/128787565556797991_a92531c51ea4.jpeg",
 	"date": "Jun 9th",
 	"vendor": "@pcshop",
 	"vendor-avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPH-XfXxbxMTizvaNTCZuugMAQeOErj8-7DcjloR9MgBAw6xxuQQ",
@@ -534,8 +534,8 @@ var sales = [
 },
 {
 	"id": "5",
-	"item-name": "Macbook Lazerwood Keys",
-	"item-image": "http://thefancy-media-ec3.thefancy.com/310/20121113/230186168505862475_38f5d0da1c7f.png",
+	"contract-name": "Macbook Lazerwood Keys",
+	"contract-image": "http://thefancy-media-ec3.thefancy.com/310/20121113/230186168505862475_38f5d0da1c7f.png",
 	"date": "Jun 7th",
 	"vendor": "@pcshop",
 	"vendor-avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPH-XfXxbxMTizvaNTCZuugMAQeOErj8-7DcjloR9MgBAw6xxuQQ",	
@@ -553,8 +553,8 @@ var sales = [
 },
 {
 	"id": "6",
-	"item-name": "The Avengers USB Sticks",
-	"item-image": "http://thefancy-media-ec4.thefancy.com/310/20120506/91344667945208211_c9f716d5c4d7.jpg",
+	"contract-name": "The Avengers USB Sticks",
+	"contract-image": "http://thefancy-media-ec4.thefancy.com/310/20120506/91344667945208211_c9f716d5c4d7.jpg",
 	"date": "Jun 5th",
 	"vendor": "@pcshop",
 	"vendor-avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPH-XfXxbxMTizvaNTCZuugMAQeOErj8-7DcjloR9MgBAw6xxuQQ",

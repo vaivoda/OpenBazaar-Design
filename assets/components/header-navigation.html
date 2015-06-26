@@ -1,0 +1,53 @@
+<dom-module id="header-navigation">
+
+  <link href="/assets/css/navigation.css" rel="stylesheet">
+
+  <template>
+    <section id="header">
+      <ul class="window-controls">
+        <li class="window-close" title="Close"></li>
+        <li class="window-minimize" title="Minimize"></li>
+        <li class="window-maximize" title="Maximize"></li>
+      </ul>
+      <div class="navigation-controls position-float-left">
+        <ul>
+          <li class="navigation-controls-back"><span><</span></li>
+          <li class="navigation-controls-forward"><span>></span></li>
+        </ul>
+      </div>
+      <input type="text" class="input input-search position-float-left" placeholder="Enter @handle or #keyword to search" />
+      <ul class="control-panel position-float-left">
+        <li class="control-panel-discover">@</li>
+        <li class="control-panel-user" style="background: url(https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg) 50% 50% / cover no-repeat"></li>
+      </ul>
+    </section>
+
+    <div class="menu visibility-hidden">
+      <ul>
+        <li class="menu-heading">DISCOVER</li>
+        <li class="menu-home">Items</li>
+        <li class="menu-services">Services</li>
+        <li class="menu-users">Users</li>
+        <li class="menu-stores">Vendors</li>
+      </ul>
+    </div>
+
+    <div class="user-menu visibility-hidden">
+      <ul>
+        <li class="menu-heading">@WOLF</li>
+        <li class="menu-store">Configuration</li>
+        <li class="menu-settings">Settings</li>
+        <li class="menu-transaction">Transactions</li>
+        <li class="menu-logout">Log out</li>
+      </ul>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'header-navigation'});
+  </script>
+  <script src="/assets/js/objects/navigation.js"></script>
+  <script src="/assets/js/objects/search.js"></script>
+  <script src="/assets/js/objects/history.js"></script>
+
+</dom-module>

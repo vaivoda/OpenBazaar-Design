@@ -1,0 +1,215 @@
+
+.contracts {
+  margin: auto;
+  text-align: left;
+  width: 1100px;
+  margin-bottom: 100px;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.contract,
+.settings-contract {
+  background: #327eb8;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
+  color: #fff;
+  display: inline-block;
+  margin: 0 28px 28px 0;
+  text-align: left;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  position: relative;
+  vertical-align: top;
+  width: 23%;
+}
+
+.contract:hover,
+.settings-contract:hover{
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  /*margin-top: -1px;*/
+}
+
+.contract:active,
+.settings-contract:active {
+  opacity: .75;
+}
+
+.contract:nth-child(4n),
+.settings-contract:active {
+  margin-right: 0;
+}
+
+.contract-image,
+.settings-contract-image {
+  background-size: cover;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 260px;
+  position: relative;
+  width: 100%;
+}
+
+.contract-detail {
+  font-family: "font-medium";
+  margin: auto;
+  text-align: left;
+  width: 1100px;
+}
+
+
+.contract-detail-meta {
+  border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
+  float: left;
+  margin-left: 30px;
+  padding: 20px;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 530px;
+}
+
+.contract-detail-meta:hover {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+  /*margin-top: -1px;*/
+}
+
+.contract-detail-image {
+  background-size: cover;
+  float: left;
+  height: 500px;
+  width: 500px;
+}
+
+.contract-detail-sold-out {
+  cursor: default;
+}
+
+.contract-detail-description {
+  clear: both;
+  font-size: 14px;
+  font-family: "font-medium";
+  line-height: 17px;
+  margin: 12px 0;
+  opacity: 0.80;
+}
+
+
+.contract-image-gradient,
+.settings-contract-image-gradient {
+  height: 180px;
+  width: 100%;
+  position: relative;
+  top: 80px;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  opacity: .55;
+  background: rgba(0,0,0,0);
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(85%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 85%, rgba(0,0,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+}
+
+.contract:hover .contract-image-gradient,
+.settings-contract:hover .settings-contract-image-gradient {
+  opacity: .65;
+}
+
+.contract-image:active .contract-image-gradient, 
+.settings-contract-image:active .settings-contract-image-gradient 
+{
+  transition: all .1s;
+  opacity: .75;
+}
+
+.contract-meta-data,
+.settings-contract-meta-data {
+  background: #327eb8;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "font-medium";
+  font-size: 14px;
+  min-height: 65px;
+  position: relative;
+}
+
+.contract-price,
+.settings-contract-price {
+  color: #fff;
+  font-size: 13px;
+  opacity: .75;
+}
+
+.contract-name:hover,
+.settings-contract-name:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.contract-detail-pricing,
+.settings-contract-detail-pricing {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.contract-vendor,
+.settings-contract-vendor {
+  border-top: solid 1px #3887C3;
+  height: 28px;
+  padding: 6px 10px;
+}
+
+.contract-vendor-name,
+.settings-contract-vendor-name {
+  color: #fff;
+  font-family: "font-medium";
+  font-size: 13px;
+  opacity: .85;
+  padding-top: 8px;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.settings-contract-image {
+  font-size: 60px;
+}
+
+.settings-add-new {
+  border-radius: 50px;
+  border: 3px solid white;
+  width: 30px;
+  height: 30px;
+  padding: 30px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 60px;
+  top: 90px;
+  position: absolute;
+  left: 50%;
+  margin-left: -49px;
+}
+
+.settings-contract {
+  text-align: center;
+}
+
+.contract-vendor-name:hover,
+.settings-contract-vendor-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.contract-vendor-avatar,
+.settings-contract-vendor-avatar {
+  background: #fff;
+  background-size: cover;
+  border-radius: 13px;
+  cursor: pointer;
+  float: left;
+  height: 26px;
+  margin-right: 4px;
+  width: 26px;
+}
