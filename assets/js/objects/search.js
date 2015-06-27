@@ -31,8 +31,8 @@ window.Search = {
     $('.loading-message').html('Searching for "' + keyword + '"');
     $('.connecting').fadeIn();
     $('.item').fadeTo(0, 0);
-    Connecting.load();
-    Connecting.setDefualtColors(false);
+    Connect.load();
+    Vendor.setDefualtColors(false);
     setTimeout(function(){  
       Discover.items(false, false);
     }, delay);

@@ -7,6 +7,8 @@ window.Navigation = {
     $(document).on("click", ".navigation-controls-back", function(){  Navigation.stepBack() });
     $(document).on("click", ".navigation-controls-forward", function(){  Navigation.stepForward() });
     $(document).on("click", ".menu-transaction", function(){ Purchases.display() });
+    $(document).on("click", ".control-panel-user", function(event){ Navigation.toggleUserSettings(event) });
+    $(document).on("click", ".control-panel-discover", function(event){ Navigation.toggleDiscovery(event) });
     $(document).on("click", ".menu-home", function(event){
       Discover.items(true, false);
       Navigation.setPageUrl();
@@ -127,6 +129,16 @@ window.Navigation = {
       }
     });
     pageViews = tmpPageViews;
+  },
+
+  toggleDiscovery: function toggleDiscovery(event){
+    event.stopPropagation();
+    $('.menu').fadeToggle(100);
+  },
+
+  toggleUserSettings: function toggleUserSettings(event){
+    event.stopPropagation();
+    $('.user-menu').fadeToggle(100);
   },
 
   unsetActivePage: function unsetActivePage(){

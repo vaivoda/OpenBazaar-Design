@@ -1,13 +1,13 @@
 $(function() {
-  window.Connecting.initialize();
+  window.Connect.initialize();
 });
 
-window.Connecting = {
+window.Connect = {
   initialize: function() {
-    $(document).on("click", ".button-try-again", function(event){ Connecting.tryAgain(event) });
+    $(document).on("click", ".button-try-again", function(event){ Connect.tryAgain(event) });
   },
 
-  connectToVendor: function connectToVendor(){
+  toVendor: function toVendor(){
     var arr = _.shuffle([1,2,3,4,5]);
     if (_.first(arr) == 1){
       return false;

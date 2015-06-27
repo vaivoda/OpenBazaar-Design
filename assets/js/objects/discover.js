@@ -18,7 +18,7 @@ window.Discover = {
     if (backwards){
       $('.loading-message').html(_.shuffle(messages)[0]);
       $('.connecting').fadeIn();
-      Connecting.load();
+      Connect.load();
       setTimeout(function(){  
         $('.connecting').hide();
         $('.items').fadeIn('fast');
@@ -27,12 +27,12 @@ window.Discover = {
       $('.loading-message').html('Connecting to stores...');
       $('.loading-icon').hide();
       $('.connecting').fadeIn();
-      Connecting.load();
+      Connect.load();
       setTimeout(function(){  
         populateFeed();
       }, delay);
     }
-    Connecting.setDefualtColors(false);
+    Vendor.setDefualtColors(false);
   },
 
   populateFeed: function populateFeed(){

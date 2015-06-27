@@ -8,6 +8,41 @@ window.Contract = {
     $(document).on("click", ".contract-meta-data, .contract-image, .contract-name", function(event){ Contract.displayDetails(event) });
     $(document).on("click", ".contract-trade-payment-type-next", function(event){ Contract.displayTradeFlowAddress() });
     $(document).on("click", ".contract-trade-address-next", function(event){ Contract.displayTradeFlowSummary() });
+    $(document).on("click", ".new-product-save", function(){ Contract.create() });
+  },
+
+  create: function create(){
+    var items = $store.items;
+    var item = [];
+    var id = Math.ceil(Math.random() * 10000) + 500
+
+    item.id = id;
+    item.name = $('.new-product-name').val();
+    item.description = $('.new-product-description').val();
+    item.price = $('.new-product-price').val();
+    item.shipping = $('.new-product-shipping').val();
+    item.type = $('.new-product-condition').val();
+    item.photo1 = $('.new-product-photo-1').val();
+    item.photo2 = $('.new-product-photo-2').val();
+    item.photo3 = $('.new-product-photo-3').val();
+
+    items.push(item);
+    $store.items = items;
+
+    // add prodcut to items list
+    $('.store-settings-items').append('<div class="settings-item" data-store-guid="" data-item-id="' + id +'"><div class="settings-item-image opacity-0" data-store-guid="" data-item-id="' + id +'" style="background: url(' + $('.new-product-photo-1').val() + ') 50% 50% / cover no-repeat"><div class="settings-item-image-gradient"></div><div class="settings-item-buttons visibility-hidden"><button id="' + id + '" class="button-primary settings-item-edit position-margin-right-5px">Edit</button><button id="' + id + '" class="button-primary settings-item-delete">Delete</button></div></div><div class="settings-item-meta-data" data-store-guid=""><div class="position-padding-10px"><div class="settings-item-name" data-store-guid="" data-item-id="' + id +'">' + $('.new-product-name').val() + '</div><div class="settings-item-price position-margin-top-3px">' + $('.new-product-price').val() + ' btc</div></div>');
+
+    // reset the colors
+    Vendor.setPrimaryColor($('.store-settings-primary-color').css('bgColor').replace('#',''));
+    Vendor.setSecondaryColor($('.store-settings-secondary-color').css('bgColor').replace('#',''));
+    Vendor.setTextColor($('.store-settings-font-color').css('bgColor').replace('#',''));
+
+
+    // hide stuffs
+    $('#main, .store-banner, .store-banner-2, .chat').removeClass('blur');
+    $('.overlay').hide();
+    $('.modal').hide();      
+    $('.settings-item-image').css('opacity', 100);
   },
 
   displayCheckout: function displayCheckout(){  
@@ -45,19 +80,39 @@ window.Contract = {
     Contract.renderContractDetail(vendor, contract, true);
   },
 
-  displayTradeFlowSummary(){
-      $('.modal-item').html($('.item-detail-name').html());
-      $('.modal-trade-flow-address').hide();
-      $('.modal-trade-flow-summary').show();
-      $('.modal-item-price-style, .modal-photo-shadow').hide();
-      $('.modal-photo').css('background','#fff');
-      Modal.setTitle('Summary');
+  displayContractInModal: function displayContractInModal(){
+    Modal.clear();
+
+    $('.new-product-name').val(product.name);
+    $('.new-product-description').val(product.description);
+    $('.new-product-price').val(product.price);
+    $('.new-product-shipping').val(product.shipping);
+    // $('.new-product-condition').val();
+    $('.new-product-photo-1').val(product.photo1);
+    $('.new-product-photo-2').val(product.photo2);
+    $('.new-product-photo-3').val(product.photo3);
+    $('.new-product-website').val(product.photo3);
+
+    Modal.show('basic');
   },
 
-  displayTradeFlowAddress(){
+  displayTradeFlowSummary: function displayTradeFlowSummary(){
+    $('.modal-item').html($('.item-detail-name').html());
+    $('.modal-trade-flow-address').hide();
+    $('.modal-trade-flow-summary').show();
+    $('.modal-item-price-style, .modal-photo-shadow').hide();
+    $('.modal-photo').css('background','#fff');
+    Modal.setTitle('Summary');
+  },
+
+  displayTradeFlowAddress: function displayTradeFlowAddress(){
     $('.modal-trade-flow-payment-type').hide();
     $('.modal-trade-flow-address').show();
     Modal.setTitle('Ship to');
+  },
+
+  find: function find(id){
+    return _.find($store, function(item){ return item.id == id });     
   },
 
   renderGridContract: function renderGridContract(vendor, contract, div){
@@ -125,7 +180,7 @@ window.Contract = {
       $('.connecting').fadeIn();
       $('.loading-icon').attr('src', vendor.avatar).show();
       $('.loading-message').html('Connecting to ' + Vendor.handle(vendor));
-      Connecting.load();
+      Connect.load();
       $('body, .navigation-controls, .navigation-controls span, .button-try-again, .control-panel li, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
       $('#header, .contract-meta-data, .vendor-contracts .contract, .vendor-details table, .vendor-banner, .vendor-footer, .contract-detail-meta').animate({ backgroundColor: vendor.colorsecondary }, fade);
       setTimeout(function(){  

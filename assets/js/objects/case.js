@@ -1,13 +1,13 @@
 $(function() {
-  window.Cases.initialize();
+  window.Case.initialize();
 });
 
-window.Cases = {
+window.Case = {
   initialize: function() {
   },
 
   display: function display(){
-    Cases.load();
+    Case.load();
     $('.transactions-h1').html('Cases');
     $('.transactions-purchases, .transactions-sales').hide();
     $('.transactions .transactions-cases').show();

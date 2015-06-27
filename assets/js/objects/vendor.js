@@ -11,6 +11,14 @@ window.Vendor = {
       Navigation.setArrowOpacity();
       Vendor.displayItems(Vendor.find(vendorGuid), true, false);
     });
+    $(document).on("click", ".trade-back-to-payment", function(){ Vendor.tradeBackToPayment() });
+    $(document).on("click", ".trade-back-to-address", function(){ Vendor.tradeBackToAddress() });
+    $(document).on("click", ".store-dets", function(event){
+      event.stopPropagation();
+      var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
+      var vendor = Vendor.find(vendorGuid);
+      Vendor.displayDetails(store);
+    });
     $('.vendor-settings-primary-color').ColorPicker({
       color: defaultPrimaryColor,
       onChange: function (hsb, hex, rgb) {
@@ -29,6 +37,10 @@ window.Vendor = {
         setTextColor(hex);
       } 
     });
+  },
+
+  create: function create(){ 
+    stores.push($store);
   },
 
   find: function find(guid){  
@@ -65,12 +77,12 @@ window.Vendor = {
     $('.loading-icon').attr('src', vendor.avatar).show();
     $('.vendor-message').attr('data-vendor-guid', vendor.guid);
     $('.loading-message').html('Connecting to ' + storeHandle(store));
-    Connecting.load();
+    Connect.load();
     $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
     $('.item-meta-data, .item-price').animate({ color: vendor.colortext }, fade);
     $('#header, .item-meta-data, .item-image, .vendor-items .item, .vendor-banner, .vendor-details table').animate({ backgroundColor: vendor.colorsecondary }, fade);
     setTimeout(function(){  
-      if (connectToStore() ||  autoConnect){
+      if (Connect.toStore() ||  autoConnect){
         $('.items, .connecting').hide();
         $('.vendor-items, .vendor-buttons').show();
         $('.vendor-name').html(storeHandle(store)).attr('data-vendor-guid', vendor.guid);
@@ -92,6 +104,20 @@ window.Vendor = {
     }, delay);
   }, 
 
+  tradeBackToPayment: function tradeBackToPayment(){
+    Modal.setTitle('Payment type');
+    $('.modal-trade-flow-address').hide();
+    $('.modal-trade-flow-payment-type').show();
+  },
+
+  tradeBackToAddress: function tradeBackToAddress(){
+    var image = $('.item-detail-image').css('background-image');
+    Modal.setTitle('Ship to');
+    $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat'); 
+    $('.modal-trade-flow-summary').hide();
+    $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();
+  },
+
   handle: function handle(vendor){  
     if (vendor.handle){
       var name = '@' + vendor.handle;
@@ -111,6 +137,14 @@ window.Vendor = {
       $('#header, .item-meta-data').animate({ backgroundColor: defaultSecondaryColor }, fade);  
       $('.item-meta-data, .item-price').animate({ color: defaultTextColor });
     }
+  },
+
+  setMetaData: function setMetaData(){
+    $store.name = $('.store-meta-name').val();
+    $store.avatar = $('.store-meta-avatar').val();
+    $store.description = $('.store-meta-description').val();
+    $store.guid = "bde33a7919ca28867d6b0acc5b9c09340607471a";
+    $store.handle = $('.store-meta-handle').val().replace('@', '');      
   },
 
   setPrimaryColor: function setPrimaryColor(hex){  

@@ -1,13 +1,13 @@
 $(function() {
-  window.Purchases.initialize();
+  window.Purchase.initialize();
 });
 
-window.Purchases = {
+window.Purchase = {
   initialize: function() {
   },
 
   display: function display(){
-    Purchases.load();
+    Purchase.load();
     $('.transactions-h1').html('Purchases');
     $('.transactions-purchases, .transactions-cases').hide();
     $('.transactions .transactions-orders').show();
