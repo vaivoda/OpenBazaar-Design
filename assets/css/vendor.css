@@ -1,0 +1,108 @@
+.vendor {
+  margin: auto;
+  text-align: left;
+  width: 1100px;
+}
+
+.vendor-banner,
+.vendor-banner-2 {
+  height: 88px; 
+  margin-top: 0px; 
+  top: 50px;
+  padding: 10px 0;
+  position: relative;
+  opacity: .80%;
+}
+
+.vendor-banner.blur,
+.vendor-banner-2.blur {
+  -webkit-filter: blur(4px);
+}
+
+.vendor-footer li {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.vendor-footer {
+  font-family: "font-medium";
+  font-size: 13px;
+  position: relative;
+  bottom: 0;
+  padding: 10px;
+  height: 20px;
+  width: 100%;
+  z-index: 50;
+}
+
+.vendor-buttons {
+  margin-top: 40px;
+}
+
+.vendor-avatar {
+  background: #086A9E;
+  background-size: cover;
+  border-radius: 40px;
+  cursor: pointer;
+  height: 80px;
+  margin: auto;
+  margin-right: 10px;
+  width: 80px;
+}
+
+.vendor-name {
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.vendor-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.vendor-contracts {
+  margin-bottom: 200px;
+  text-align: left;
+}
+
+.vendor-description {
+  font-family: "font-medium";
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 2px;
+  opacity: 0.80;
+  width: 550px;
+}
+
+.vendor-details table {
+  border-radius: 4px;
+  font-family: "font-medium";
+  font-size: 13px;
+  width: 800px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.vendor-details a {
+  color: #fff;
+}
+
+.vendor-details a:hover {
+  color: #fff;
+}
+
+.vendor-details table td {
+  min-height: 30px;
+  word-break: break-word;
+  padding: 15px;
+}
+
+.vendor-details td.label{
+  font-family: "font-medium";
+  width: 150px;
+}
+
+.vendor-details td.value {
+  line-height: 15px;
+  opacity: 0.80;
+}

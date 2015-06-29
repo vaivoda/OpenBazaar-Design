@@ -32,8 +32,8 @@ window.Configuration = {
 
   page: function page(){
     fade = 0;   
-    $('.modal-name').html('Store name...').css('cursor', 'url("./assets/img/edit.png"), pointer');
-    $('.modal-description').html('Store description...');
+    $('.vendor-name').html('Store name...').css('cursor', 'url("./assets/img/edit.png"), pointer');
+    $('.vendor-description').html('Store description...');
     $('.settings-contract-image').css('opacity', 100);
 
     Vendor.setPrimaryColor(defaultPrimaryColor);
@@ -43,15 +43,15 @@ window.Configuration = {
     $('.user-configuration').show();
     $('.chat').css('bottom', '-240px');
     $('.chat').hide();
-    $('.modal-banner-2, .modal-settings').fadeIn('slow');
-    $('#main, .modal-banner, .modal-banner-2').addClass('blur');
+    $('.vendor-banner-2, .modal-settings').fadeIn('slow');
+    $('#main, .vendor-banner, .vendor-banner-2').addClass('blur');
     Configuration.pageMeta();
   },
 
   pageMeta: function pageMeta(){
-    $('#main, .modal-banner, .modal-banner-2').addClass('blur');
+    $('#main, .vendor-banner, .vendor-banner-2').addClass('blur');
     $('.modal-product, .chat').hide();
     $('.overlay, .modal, .modal-vendor-meta').show();
-    $('.modal-meta-name').focus();    
+    $('.vendor-meta-name').focus();    
   }
 }

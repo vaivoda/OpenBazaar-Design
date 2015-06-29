@@ -19,11 +19,11 @@ window.Vendor = {
     });
     $(document).on("click", ".trade-back-to-payment", function(){ Vendor.tradeBackToPayment() });
     $(document).on("click", ".trade-back-to-address", function(){ Vendor.tradeBackToAddress() });
-    $(document).on("click", ".store-dets", function(event){
+    $(document).on("click", ".vendor-dets", function(event){
       event.stopPropagation();
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       var vendor = Vendor.find(vendorGuid);
-      Vendor.displayDetails(store);
+      Vendor.displayDetails(vendor);
     });
     $('.user-configuration-primary-color').ColorPicker({
       color: defaultPrimaryColor,
@@ -63,6 +63,7 @@ window.Vendor = {
 
   displayDetails: function displayDetails(vendor){  
     Helper.hideAll();
+    $('.vendor, .vendor-banner').show();
     $('.vendor-details').fadeIn();
     $('.vendor-details-website').html('<a href="' + vendor.website + '" target="_blank">' + vendor.website + '</a>');
     $('.vendor-details-email').html(vendor.email);
@@ -73,7 +74,7 @@ window.Vendor = {
   
   displayContracts: function displayContracts(vendor, updatePageViews, instant, autoConnect){  
     if (instant){ delay = 0; fade = 0; } else {  delay = 1900; fade = 500; }
-    $('.contracts').empty();
+    $('.contracts, .vendor-contracts').empty();
     if (updatePageViews){
       pageViews.push({"page": "vendor", "guid": vendor.guid, "active": true});
       Navigation.unsetActivePage();
@@ -81,10 +82,13 @@ window.Vendor = {
       Navigation.setArrowOpacity();
     }
     _.each(vendor.contracts, function(contract, index){
-      Contract.renderGridContract(vendor, contract, '.contracts');
+      Contract.renderGridContract(vendor, contract, '.vendor-contracts');
     });
 
     Helper.hideAll();
+    Vendor.setPrimaryColor(vendor.colorprimary);
+    Vendor.setSecondaryColor(vendor.colorsecondary);
+    Vendor.setTextColor(vendor.colortext);
     $('.connecting').fadeIn();
     $('.loading-icon').attr('src', vendor.avatar).show();
     $('.vendor-message').attr('data-vendor-guid', vendor.guid);
@@ -95,8 +99,8 @@ window.Vendor = {
     $('#header, .item-meta-data, .item-image, .contracts .item, .vendor-banner, .vendor-details table').animate({ backgroundColor: vendor.colorsecondary }, fade);
     setTimeout(function(){  
       if (Connect.toVendor() ||  autoConnect){
-        $('.items, .connecting').hide();
-        $('.contracts, .vendor-buttons').show();
+        $('.contracts, .connecting').hide();
+        $('.vendor-contracts, .vendor-buttons').show();
         $('.vendor-name').html(Vendor.handle(vendor)).attr('data-vendor-guid', vendor.guid);
         $('.vendor-home').attr('data-vendor-guid', vendor.guid);
         $('.vendor-dets').attr('data-vendor-guid', vendor.guid);
@@ -104,9 +108,9 @@ window.Vendor = {
         $('.vendor-avatar').css('background-image', 'url(' + vendor.avatar + ')').attr('data-vendor-guid', vendor.guid);
         $('.vendor-banner, .vendor-footer').show();
         if (instant){
-          $('.store').show();
+          $('.vendor').show();
         }else{
-          $('.store').fadeIn('slow');
+          $('.vendor').fadeIn('slow');
         }
       }else{
         $('#spinner').empty().hide();
@@ -161,7 +165,7 @@ window.Vendor = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, user-configuration-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
+    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
     $store.colorprimary = '#' + hex;
@@ -169,14 +173,14 @@ window.Vendor = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .settings-item, .settings-item-meta-data, .vendor-banner-2, .vendor-details table, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
+    $('#header, .settings-contract, .settings-contract-meta-data, .contract-meta-data, .vendor-banner-2, .vendor-details table, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
 
   setTextColor: function setTextColor(hex){  
     hex = hex.replace('#','');
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, user-configuration-primary-color, .user-configuration-items .settings-item-meta-data, .settings-add-new, .user-configuration-items .settings-item-price, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
+    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .user-configuration-contracts .settings-contract-meta-data, .contract-meta-data, .settings-add-new, .user-configuration-contracts .settings-contact-price, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
     $('.user-configuration-font-color').css('background-color', '#' + hex);
     $('.settings-add-new').css('border-color', '#' + hex);
     $store.colortext = '#' + hex;

@@ -1,0 +1,111 @@
+<dom-module id="modal-basic">
+
+  <link href="/assets/css/modal-basic.css" rel="stylesheet">
+
+  <template>    
+    <div class="modal visibility-hidden">
+      <div class="modal-product visibility-hidden">
+        <div class="modal-header">
+          Add item
+        </div>
+        <div class="modal-body">
+          <table>
+            <tr>
+              <td class="label">Item name</td>
+              <td><input class="new-product-name" /></td>
+            </tr>
+            <tr>
+              <td class="label">Description</td>
+              <td><textarea class="new-product-description"></textarea></td>
+            </tr>
+            <tr>
+              <td class="label">Price</td>
+              <td>
+                <input class="new-product-price input-medium" placeholder="Item price" />
+                <input class="new-product-shipping input-medium" placeholder="Shipping price" />
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Quantity</td>
+              <td><input type="number" class="new-product-qunatity input-medium" value="1" /></td>
+            </tr>
+            <tr>
+              <td class="label">Photos</td>
+              <td>
+                <div id="dropzone">
+                  <form action="/" class="dropzone" id="demo-upload">
+                    <div class="dz-message">Drop files here or click to select</div>
+                  </form>
+                  <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Condition</td>
+              <td>
+                <select class="new-product-condition">
+                  <option>--</option>
+                  <option>New</option>
+                  <option>Refurbished</option>
+                  <option>Used (Very good condition)</option>
+                  <option>Used (Fair condition)</option>
+                  <option>Used (Poor condition)</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Keywords</td>
+              <td><input class="new-product-keywords"  placeholder="Separate by commas" /></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button class="button-primary close-modal">Cancel</button>
+          <button class="button-primary new-product-save">Save</button>
+        </div>
+      </div>
+
+      <div class="modal-vendor-meta visibility-hidden">
+        <div class="modal-header">
+          Store configuration
+        </div>
+        <div class="modal-body">
+          <table>
+            <tr>
+              <td class="label">Store name</td>
+              <td><input class="vendor-meta-name" /></td>
+            </tr>
+            <tr>
+              <td class="label">Handle</td>
+              <td><input class="vendor-meta-handle" /></td>
+            </tr>
+            <tr>
+              <td class="label">Description</td>
+              <td><textarea class="vendor-meta-description"></textarea></td>
+            </tr>
+            <tr>
+              <td class="label">Icon</td>
+              <td><input type="file" /></td>
+            </tr>
+            <tr>
+              <td class="label">Website</td>
+              <td><input class="vendor-meta-website" placeholder="optional" /></td>
+            </tr>
+            <tr>
+              <td class="label">Email</td>
+              <td><input class="vendor-meta-email" placeholder="optional" /></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button class="button-primary close-modal">Cancel</button>
+          <button class="button-primary vendor-meta-save">Save</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'modal-basic'});
+  </script>
+</dom-module>

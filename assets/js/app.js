@@ -41,9 +41,9 @@ $(function() {
   	e.stopPropagation();
     if($('.input-search').is(":focus") && e.which == 13){ Search.find(); }
     if($('.input-chat-new-message').is(":focus") && e.which == 13) { Chat.saveMessage(); }
-    if($('.store-meta-name').is(':focus') && $('.store-meta-name').val() !== ""){ $('.store-banner-2 .store-name').html($('.store-meta-name').val()); }
-    if($('.store-meta-description').is(':focus') && $('.store-meta-description').val() !== ""){ $('.store-banner-2 .store-description').html($('.store-meta-description').val()); }
-    if($('.store-meta-avatar').is(':focus') && $('.store-meta-avatar').val() !== ""){ $('.store-banner-2 .store-avatar').css('background', 'url(' + $('.store-meta-avatar').val() + ') 50% 50% / cover no-repeat'); }
+    if($('.vendor-meta-name').is(':focus') && $('.vendor-meta-name').val() !== ""){ $('.vendor-banner-2 .vendor-name').html($('.vendor-meta-name').val()); }
+    if($('.vendor-meta-description').is(':focus') && $('.vendor-meta-description').val() !== ""){ $('.vendor-banner-2 .vendor-description').html($('.vendor-meta-description').val()); }
+    if($('.vendor-meta-avatar').is(':focus') && $('.vendor-meta-avatar').val() !== ""){ $('.vendor-banner-2 .vendor-avatar').css('background', 'url(' + $('.vendor-meta-avatar').val() + ') 50% 50% / cover no-repeat'); }
 
   	Navigation.setArrowOpacity();
 	}

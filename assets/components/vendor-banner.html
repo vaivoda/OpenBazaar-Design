@@ -1,0 +1,38 @@
+<dom-module id="vendor-banner">
+
+  <link href="/assets/css/vendor.css" rel="stylesheet">
+
+  <template>    
+    <div class="vendor-banner visibility-hidden">
+      <div style="width: 1100px; margin: auto">
+        <div class="vendor-avatar position-float-left"></div>
+        <div class="position-float-left">
+          <h1 class="vendor-name"></h1>
+          <div class="vendor-description"></div>
+        </div>
+        <div class="vendor-buttons position-float-right">
+          <button class="button-primary vendor-home position-margin-right-2px">Items</button>
+          <button class="button-primary vendor-dets position-margin-right-2px">Details</button>
+          <button class="button-primary position-margin-right-2px">Services</button>
+          <button class="button-primary vendor-message">Message</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="vendor-banner-2 visibility-hidden">
+      <div style="width: 1100px; margin: auto">
+        <div class="vendor-avatar position-float-left"></div>
+        <div class="position-float-left">
+          <h1 class="vendor-name"></h1>
+          <div class="vendor-description"></div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'vendor-banner'});
+  </script>
+  <script src="/assets/js/objects/vendor.js"></script>
+
+</dom-module>
