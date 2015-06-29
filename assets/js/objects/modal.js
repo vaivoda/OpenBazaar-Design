@@ -5,7 +5,7 @@ $(function() {
 window.Modal = {
   initialize: function() {
     $(document).on("click", ".overlay, .close-modal, .trade-close", function(){ Modal.close() });
-    $(document).on("click", ".modal-navigation li", function(){ Modal.setActiveTab() });
+    $(document).on("click", ".modal-navigation li", function(event){ Modal.setActiveTab(event) });
   },
 
   clear: function clear(){
@@ -13,7 +13,6 @@ window.Modal = {
   },
 
   close: function close(){
-    console.log('a');
     $('.modal-pretty, .modal').fadeTo(150, 0, function(){
       $('#main, .vendor-banner, .vendor-banner-2, .chat').removeClass('blur');
       $('.modal-pretty, .modal').hide();

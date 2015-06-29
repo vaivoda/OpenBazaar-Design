@@ -15,10 +15,12 @@ window.Discover = {
     $('.ob-icon').show();
     
     if (backwards){
+      $('.loading-icon').hide();
       $('.loading-message').html(_.shuffle(messages)[0]);
       $('.connecting').fadeIn();
       Connect.load();
       setTimeout(function(){  
+        Discover.populateFeed();
         $('.connecting').hide();
         $('.contracts').fadeIn('fast');
       }, 1000);

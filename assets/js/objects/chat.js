@@ -28,6 +28,10 @@ window.Chat = {
     });
   },
 
+  find: function find(id) {
+    return _.find(chats, function(chat){ return chat.id == id })
+  },
+
   loadMessages: function loadMessages(){
     $('.chat-expanded-conversations ul').empty();
     $('.chat-expanded').css('overflow-y','scroll');
@@ -42,36 +46,40 @@ window.Chat = {
         var read = ''
         var count = '<div class="chat-message-count">1</div>';
       }
-      $('.chat-conversations ul').append('<li class="chat-view-details ' + read + '" data-id="' + chat.id + '"><div class="chat-holder"><div class="chat-avatar" style="background: url(' + lastMessage.avatar + ') 100% 100% / cover no-repeat">' + count + '</div><div class="chat-message"><div class="chat-name">' + lastMessage.from +  '</div><div>' + lastMessage.message + '</div></div></div></li>');
+
+      if(lastMessage){
+        $('.chat-conversations ul').append('<li class="chat-view-details ' + read + '" data-id="' + chat.id + '"><div class="chat-holder"><div class="chat-avatar" style="background: url(' + lastMessage.avatar + ') 100% 100% / cover no-repeat">' + count + '</div><div class="chat-message"><div class="chat-name">' + lastMessage.from +  '</div><div>' + lastMessage.message + '</div></div></div></li>');
+      }
     });
   },
 
-  newConversation: function newConversation(store){
+  newConversation: function newConversation(vendor){
     var chat = {
-      "id": store.id,
+      "id": vendor.id,
       "read": true,
       "incoming": false,
       "from": "@mike",
-      "to": store.storeHandle,
+      "to": Vendor.handle(vendor),
       "date": "",
       "conversation": []
     };
     chats.push(chat);
-    Chat.loadMessages();
+    Chat.saveMessage();
   },
 
   saveMessage: function saveMessage(){
-      var id = $('.input-chat-new-message').attr('data-id');
-      var chat = _.find(chats, function(chat){ return chat.id == id });
-      var newMessage = {
-        "from": "@mike",
-        "message": $('.input-chat-new-message').val(),
-        "avatar": "https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg"
-      }
-      chat.conversation.push(newMessage);
-      $('.input-chat-new-message').val('');
-      $('.chat-conversation-detail-body').scrollTop($('.chat-conversation-detail-body')[0].scrollHeight);
-      Chat.viewDetails(id);
+    var id = $('.input-chat-new-message').attr('data-id');
+    console.log(id);
+    var chat = Chat.find(id);
+    var newMessage = {
+      "from": "@mike",
+      "message": $('.input-chat-new-message').val(),
+      "avatar": "https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg"
+    }
+    chat.conversation.push(newMessage);
+    $('.input-chat-new-message').val('');
+    $('.chat-conversation-detail-body').scrollTop($('.chat-conversation-detail-body')[0].scrollHeight);
+    Chat.viewDetails(id);
   },
 
   toggle: function toggle(event){
@@ -123,7 +131,7 @@ window.Chat = {
   },
 
   viewDetails: function viewDetails(id){
-    var chat = _.find(chats, function(chat){ return chat.id == id });
+    var chat = Chat.find(id);
     $('.chat-view-details[data-id=' + id + ']').addClass('chat-read');
     $('.chat-conversations').css('overflow','hidden');
     $('.input-chat-new-message').val('');

@@ -1,59 +1,58 @@
 <dom-module id="user-transactions">
 
   <template>
-    <div class="transactions visibility-hidden">
-      <div>
-        <h1 class="position-float-left position-margin-top-10px transactions-h1">Purchases</h1>
-        <select class="select position-float-right position-margin-bottom-15px position-width-130px transactions-select">
-          <option value="purchases">Purchases</option>
-          <option value="sales">Sales</option>
-          <option value="cases">Cases</option>
-        </select>
-        <table class="list-view position-margin-top-15px transactions-purchases">
-          <thead>
-            <tr>
-              <td>Item</td>
-              <td>Date</td>
-              <td>Seller</td>
-              <td>Total</td>
-              <td>Status</td>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-        <table class="list-view position-margin-top-15px transactions-sales visibility-hidden">
-          <thead>
-            <tr>
-              <td>Id</td>
-              <td>Date</td>
-              <td>Buyer</td>
-              <td>Total</td>
-              <td>Status</td>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-        <table class="list-view position-margin-top-15px transactions-cases visibility-hidden">
-          <thead>
-            <tr>
-              <td>Date</td>
-              <td>Buyer</td>
-              <td>Seller</td>
-              <td>Status</td>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
+    <div class="transactions">
+      <h1 class="position-float-left position-margin-top-10px transactions-h1">Purchases</h1>
+      <select class="select position-float-right position-margin-bottom-15px position-width-130px transactions-select">
+        <option value="purchases">Purchases</option>
+        <option value="sales">Sales</option>
+        <option value="cases">Cases</option>
+      </select>
+      <table class="list-view position-margin-top-15px transactions-purchases">
+        <thead>
+          <tr>
+            <td>Item</td>
+            <td>Date</td>
+            <td>Seller</td>
+            <td>Total</td>
+            <td>Status</td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <table class="list-view position-margin-top-15px transactions-sales">
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Date</td>
+            <td>Buyer</td>
+            <td>Total</td>
+            <td>Status</td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <table class="list-view position-margin-top-15px transactions-cases">
+        <thead>
+          <tr>
+            <td>Date</td>
+            <td>Buyer</td>
+            <td>Seller</td>
+            <td>Status</td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
   </template>
 
   <script>
     Polymer({is: 'user-transactions'});
   </script>
+  <script src="/assets/js/objects/transaction.js"></script>
   <script src="/assets/js/objects/purchase.js"></script>
   <script src="/assets/js/objects/sale.js"></script>
   <script src="/assets/js/objects/case.js"></script>

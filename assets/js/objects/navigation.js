@@ -6,11 +6,11 @@ window.Navigation = {
   initialize: function(){
     $(document).on("click", ".navigation-controls-back", function(){  Navigation.stepBack() });
     $(document).on("click", ".navigation-controls-forward", function(){  Navigation.stepForward() });
-    $(document).on("click", ".menu-transaction", function(){ Purchases.display() });
+    $(document).on("click", ".menu-transaction", function(){ Purchase.display() });
     $(document).on("click", ".control-panel-user", function(event){ Navigation.toggleUserSettings(event) });
     $(document).on("click", ".control-panel-discover", function(event){ Navigation.toggleDiscovery(event) });
     $(document).on("click", ".menu-home", function(event){
-      Discover.items(true, false);
+      Discover.contracts(true, false);
       Navigation.setPageUrl();
     });
   },

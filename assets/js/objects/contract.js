@@ -71,8 +71,8 @@ window.Contract = {
 
   displayDetails: function displayDetails(event){  
     event.stopPropagation();
-    var vendorGuid = $(event.currentTarget).data('vendorGuid');
-    var contractId = $(event.currentTarget).data('contractId');
+    var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
+    var contractId = $(event.currentTarget).attr('data-contract-id');
     var vendor = _.find(vendors, function(vendor){ return vendor.guid == vendorGuid });
     var contract = _.find(vendor.contracts, function(contract){ return contract.id == contractId });
     $('.contracts').hide();
@@ -117,8 +117,6 @@ window.Contract = {
   },
 
   renderGridContract: function renderGridContract(vendor, contract, div){
-    console.log(vendor);
-    console.log(contract);
     if (vendor.handle){
       var name = '@' + vendor.handle;
     }else{
@@ -129,7 +127,7 @@ window.Contract = {
     var output = '<div class="contract" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'"><div class="contract-image opacity-0" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" style="background: url(' + contract.photo1 + ') 50% 50% / cover no-repeat"><div class="contract-image-gradient"></div></div><div class="contract-meta-data" data-vendor-guid="' + vendor.guid + '"><div class="position-padding-10px"><div class="contract-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + contract.name + '</div><div class="contract-price position-margin-top-3px">' + contract.price + ' btc</div></div>';
 
     if (div === '.contracts'){
-      output += '<div class="contract-vendor"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"></div><div class="contract-vendor-name" data-vendor-guid="' + vendor.guid + '">' + name + '</div></div>';
+      output += '<div class="contract-vendor" data-contract-id="' + contract.id +'"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-contract-id="' + contract.id +'"></div><div class="contract-vendor-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + name + '</div></div>';
     }else{
       output += '</div></div></div>';
     }

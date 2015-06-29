@@ -4,6 +4,12 @@ $(function() {
 
 window.Vendor = {
   initialize: function() {
+    $(document).on("click", ".contract-vendor-name", function(event) { 
+      event.stopPropagation();
+      var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
+      Vendor.displayContracts(Vendor.find(vendorGuid), true, false);
+      
+    });
     $(document).on("click", ".item-vendor-name, .vendor-banner .vendor-name, .vendor-banner .vendor-avatar, .vendor-home", function(event) { 
       event.stopPropagation();
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
@@ -67,6 +73,8 @@ window.Vendor = {
     if (updatePageViews){
       pageViews.push({"page": "vendor", "guid": vendor.guid, "active": true});
       Navigation.unsetActivePage();
+      Navigation.stripPageHistory();
+      Navigation.setArrowOpacity();
     }
     _.each(vendor.contracts, function(contract, index){
       Contract.renderGridContract(vendor, contract, '.contracts');
@@ -148,6 +156,7 @@ window.Vendor = {
   },
 
   setPrimaryColor: function setPrimaryColor(hex){  
+    hex = hex.replace('#','');
     $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, vendor-settings-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
     $('.vendor-settings-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
@@ -155,12 +164,14 @@ window.Vendor = {
   },
 
   setSecondaryColor: function setSecondaryColor(hex){  
+    hex = hex.replace('#','');
     $('#header, .settings-item, .settings-item-meta-data, .vendor-banner-2, .vendor-details table, .vendor-settings-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
 
   setTextColor: function setTextColor(hex){  
+    hex = hex.replace('#','');
     $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, vendor-settings-primary-color, .vendor-settings-items .settings-item-meta-data, .settings-add-new, .vendor-settings-items .settings-item-price, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
     $('.vendor-settings-font-color').css('background-color', '#' + hex);
     $('.settings-add-new').css('border-color', '#' + hex);

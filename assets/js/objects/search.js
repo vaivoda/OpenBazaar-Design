@@ -10,7 +10,7 @@ window.Search = {
     if($('.input-search').val().includes('@')){
       Search.byHandle($('.input-search').val());
     }else if($('.input-search').val() === ''){
-      Discover.items(true, false);
+      Discover.contracts(true, false);
       Navigation.setPageUrl();
     }else{
       Search.byKeyword($('.input-search').val());
@@ -19,7 +19,7 @@ window.Search = {
 
   byHandle: function byHandle(handle){
     var tmpStore = Vendor.findByHandle(handle);
-    displayStore(tmpStore, true, false);
+    Vendor.displayContracts(tmpStore, true, false);
     Navigation.setPageUrl(tmpStore.guid);
   },
 
@@ -34,7 +34,7 @@ window.Search = {
     Connect.load();
     Vendor.setDefualtColors(false);
     setTimeout(function(){  
-      Discover.items(false, false);
+      Discover.contracts(false, false);
     }, delay);
   }
 }
