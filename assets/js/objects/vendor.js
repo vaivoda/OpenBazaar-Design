@@ -9,7 +9,7 @@ window.Vendor = {
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       Navigation.stripPageHistory();
       Navigation.setArrowOpacity();
-      Vendor.displayItems(Vendor.find(vendorGuid), true, false);
+      Vendor.displayContracts(Vendor.find(vendorGuid), true, false);
     });
     $(document).on("click", ".trade-back-to-payment", function(){ Vendor.tradeBackToPayment() });
     $(document).on("click", ".trade-back-to-address", function(){ Vendor.tradeBackToAddress() });
@@ -52,7 +52,7 @@ window.Vendor = {
   },  
 
   displayDetails: function displayDetails(vendor){  
-    $('.vendor-items, .item-detail').hide();
+    Helper.hideAll();
     $('.vendor-details').fadeIn();
     $('.vendor-details-website').html('<a href="' + vendor.website + '" target="_blank">' + vendor.website + '</a>');
     $('.vendor-details-email').html(vendor.email);
@@ -61,31 +61,31 @@ window.Vendor = {
     $('.vendor-details-pgp-key').html($.parseHTML(vendor.pgpKey));
   },
   
-  displayItems: function displayItems(vendor, updatePageViews, instant, autoConnect){  
+  displayContracts: function displayContracts(vendor, updatePageViews, instant, autoConnect){  
     if (instant){ delay = 0; fade = 0; } else {  delay = 1900; fade = 500; }
-    $('.vendor-items').empty();
+    $('.contracts').empty();
     if (updatePageViews){
-      pageViews.push({"page": "store", "guid": vendor.guid, "active": true});
+      pageViews.push({"page": "vendor", "guid": vendor.guid, "active": true});
       Navigation.unsetActivePage();
     }
-    _.each(vendor.items, function(item, index){
-      renderGridItem(store, item, '.vendor-items');
+    _.each(vendor.contracts, function(contract, index){
+      Contract.renderGridContract(vendor, contract, '.contracts');
     });
 
-    hideAllTheThings();
+    Helper.hideAll();
     $('.connecting').fadeIn();
     $('.loading-icon').attr('src', vendor.avatar).show();
     $('.vendor-message').attr('data-vendor-guid', vendor.guid);
-    $('.loading-message').html('Connecting to ' + storeHandle(store));
+    $('.loading-message').html('Connecting to ' + Vendor.handle(vendor));
     Connect.load();
     $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
     $('.item-meta-data, .item-price').animate({ color: vendor.colortext }, fade);
-    $('#header, .item-meta-data, .item-image, .vendor-items .item, .vendor-banner, .vendor-details table').animate({ backgroundColor: vendor.colorsecondary }, fade);
+    $('#header, .item-meta-data, .item-image, .contracts .item, .vendor-banner, .vendor-details table').animate({ backgroundColor: vendor.colorsecondary }, fade);
     setTimeout(function(){  
-      if (Connect.toStore() ||  autoConnect){
+      if (Connect.toVendor() ||  autoConnect){
         $('.items, .connecting').hide();
-        $('.vendor-items, .vendor-buttons').show();
-        $('.vendor-name').html(storeHandle(store)).attr('data-vendor-guid', vendor.guid);
+        $('.contracts, .vendor-buttons').show();
+        $('.vendor-name').html(Vendor.handle(vendor)).attr('data-vendor-guid', vendor.guid);
         $('.vendor-home').attr('data-vendor-guid', vendor.guid);
         $('.vendor-dets').attr('data-vendor-guid', vendor.guid);
         $('.vendor-description').html(vendor.description);
@@ -99,7 +99,7 @@ window.Vendor = {
       }else{
         $('#spinner').empty().hide();
         $('.loading-message').html('Connection failed');
-        $('.button-try-again').removeData().attr('data-vendor-guid', vendor.guid).attr('data-view', "item-detail").attr('data-view', "store").show();
+        $('.button-try-again').removeData().attr('data-vendor-guid', vendor.guid).attr('data-view', "item-detail").attr('data-view', "vendor").show();
       }
     }, delay);
   }, 

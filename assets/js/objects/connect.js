@@ -43,17 +43,17 @@ window.Connect = {
 
   tryAgain: function tryAgain(instant){
     event.stopPropagation();
-    var vendorGuid = $(event.currentTarget).data('vendorGuid');
-    var contractId = $(event.currentTarget).data('contractId');
-    var view = $(event.currentTarget).data('view');
-    var vendor = _.find(vendors, function(vendor){ return vendor.guid == vendorGuid });
-    var item = _.find(vendor.contracts, function(contract){ return contract.id == contractId });
+    var vendorGuid = $('.button-try-again').data('vendorGuid');
+    var contractId = $('.button-try-again').data('contractId');
+    var view = $('.button-try-again').data('view');
+    var vendor = Vendor.find(vendorGuid);
+    var contract = _.find(vendor.contracts, function(contract){ return contract.id == contractId });
     switch(view){
-      case "store":
-        Vendor.displayItems(vendor, false, false);
+      case "vendor":
+        Vendor.displayContracts(vendor, false, false);
         break;
-      case "item-detail":
-        Item.renderItemDetail(vendor, item, false);
+      case "contract":
+        Contract.renderContractDetail(vendor, contract, false);
         break;
     }
     Navigation.stripPageHistory();

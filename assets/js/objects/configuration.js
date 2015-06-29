@@ -11,7 +11,7 @@ window.Configuration = {
     $(document).on("click", ".store-settings-save", function(){ 
       Vendor.create();
       var tmpVendor = Vendor.findByHandle($('.store-meta-handle').val());
-      Vendor.displayItems(tmpVendor, true, false);
+      Vendor.displayContract(tmpVendor, true, false);
       Navigation.setPageUrl(tmpVendor.guid); 
     });
     $(document).on("click", ".store-meta-save", function(){

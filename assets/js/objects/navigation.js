@@ -22,7 +22,7 @@ window.Navigation = {
   },
 
   setArrowOpacity: function setArrowOpacity(){
-    var page = _.find(pageViews, function(item) { return item.active === true });
+    var page = _.find(pageViews, function(page) { return page.active === true });
     var pageViewSize = pageViews.length - 1;
     var currentPageIndex = _.indexOf(pageViews, page);
 
@@ -60,22 +60,22 @@ window.Navigation = {
       var nextPage = pageViews[pageIndex+1];
       switch(nextPage.page){
         case "home":
-          Discover.items(false, false);
+          Discover.contracts(false, false);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(nextPage);
           Navigation.setPageUrl();
           break;
-        case "item-detail":
-          var store = _.find(stores, function(item){ return item.guid == nextPage.guid })
-          var item = _.find(store.items, function(item){ return item.id == nextPage.itemid });
-          displayItemDetail(store, item, false);
+        case "contract":
+          var vendor = Vendor.find(nextPage.guid);
+          var contract = _.find(vendor.contracts, function(vendor){ return vendor.id == nextPage.contractid });
+          Contract.renderContractDetail(vendor, contract, false);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(nextPage);
           Navigation.setPageUrl(store.guid + '/' + item.id);
           break;
-        case "store":
-          var store = _.find(stores, function(item){ return item.guid == nextPage.guid })
-          displayStore(store, false, false);
+        case "vendor":
+           var vendor = Vendor.find(nextPage.guid);
+          Vendor.displayContracts(vendor, false, false);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(nextPage);
           Navigation.setPageUrl(store.guid);
@@ -93,22 +93,22 @@ window.Navigation = {
 
       switch(previousPage.page){
         case "home":
-          Discover.items(false, true);
+          Discover.contracts(false, true);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(previousPage);
           Navigation.setPageUrl();
           break;
-        case "item-detail":
-            var store = _.find(stores, function(item){ return item.guid == previousPage.guid })
-            var item = _.find(store.items, function(item){ return item.id == previousPage.itemid });
-          displayItemDetail(store, item, false);
+        case "contract":
+          var vendor = Vendor.find(previousPage.guid);
+          var contract = _.find(vendor.contracts, function(vendor){ return vendor.id == previousPage.contractid });
+          Contract.renderContractDetail(vendor, contract, false);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(previousPage);
           Navigation.setPageUrl(store.guid + '/' + store.id);
           break;
-        case "store":
-          var store = _.find(stores, function(item){ return item.guid == previousPage.guid })
-            displayStore(store, false, true, true);
+        case "vendor":
+          var vendor = Vendor.find(previousPage.guid);
+          Vendor.displayContracts(vendor, false, true, true);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(previousPage);
           Navigation.setPageUrl(store.guid);
@@ -142,7 +142,7 @@ window.Navigation = {
   },
 
   unsetActivePage: function unsetActivePage(){
-    var page = _.find(pageViews, function(item) { return item.active === true })
+    var page = _.find(pageViews, function(page) { return page.active === true })
     if (page){
       page.active = false;
     }

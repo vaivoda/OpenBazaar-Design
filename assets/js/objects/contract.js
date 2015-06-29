@@ -75,6 +75,7 @@ window.Contract = {
     var contractId = $(event.currentTarget).data('contractId');
     var vendor = _.find(vendors, function(vendor){ return vendor.guid == vendorGuid });
     var contract = _.find(vendor.contracts, function(contract){ return contract.id == contractId });
+    $('.contracts').hide();
     Navigation.stripPageHistory();
     Navigation.setArrowOpacity();
     Contract.renderContractDetail(vendor, contract, true);
@@ -116,6 +117,8 @@ window.Contract = {
   },
 
   renderGridContract: function renderGridContract(vendor, contract, div){
+    console.log(vendor);
+    console.log(contract);
     if (vendor.handle){
       var name = '@' + vendor.handle;
     }else{
@@ -140,8 +143,9 @@ window.Contract = {
     Navigation.setPageUrl(vendor.guid + '/' + contract.id);
 
     if (updatePageViews){
-      pageViews.push({"page": "contract-detail", "contractid": contract.id, "guid": vendor.guid, "active": true});
+      pageViews.push({"page": "contract", "contractid": contract.id, "guid": vendor.guid, "active": true});
       Navigation.unsetActivePage(); 
+      Navigation.setArrowOpacity();
     } 
 
     if (contract.quantity === 0){
@@ -184,7 +188,7 @@ window.Contract = {
       $('body, .navigation-controls, .navigation-controls span, .button-try-again, .control-panel li, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
       $('#header, .contract-meta-data, .vendor-contracts .contract, .vendor-details table, .vendor-banner, .vendor-footer, .contract-detail-meta').animate({ backgroundColor: vendor.colorsecondary }, fade);
       setTimeout(function(){  
-        if (Connecting.connectToVendor()){
+        if (Connect.toVendor()){
           $('.contract, .connecting').hide();
           $('.vendor-name').html(Vendor.handle(vendor)).attr('data-vendor-guid', vendor.guid);
           $('.vendor-home').attr('data-vendor-guid', vendor.guid);
@@ -198,7 +202,7 @@ window.Contract = {
         }else{
           $('#spinner').empty().hide();
           $('.loading-message').html('Connection failed');
-          $('.button-try-again').removeData().attr('data-vendor-guid', vendor.guid).attr('data-contract-id', contract.id).attr('data-view', "contract-detail").show();
+          $('.button-try-again').removeData().attr('data-vendor-guid', vendor.guid).attr('data-contract-id', contract.id).attr('data-view', "contract").show();
         }
       }, delay);
 

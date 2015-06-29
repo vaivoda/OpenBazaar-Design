@@ -11,8 +11,7 @@ window.Discover = {
       pageViews.push({"page": "home", "active": true});
       Navigation.unsetActivePage();
     }
-    $('#main, .store-banner, .store-banner-2, .chat').removeClass('blur');
-    $('.store, .store-settings, .store-banner, .store-banner-2, .store-footer, .loading-icon, .item-detail, .items, .button-try-again, .modal, .overlay, .transactions').hide();
+    Helper.hideAll();
     $('.ob-icon').show();
     
     if (backwards){
@@ -21,7 +20,7 @@ window.Discover = {
       Connect.load();
       setTimeout(function(){  
         $('.connecting').hide();
-        $('.items').fadeIn('fast');
+        $('.contracts').fadeIn('fast');
       }, 1000);
     }else{
       $('.loading-message').html('Connecting to stores...');
@@ -29,7 +28,7 @@ window.Discover = {
       $('.connecting').fadeIn();
       Connect.load();
       setTimeout(function(){  
-        populateFeed();
+        Discover.populateFeed();
       }, delay);
     }
     Vendor.setDefualtColors(false);

@@ -13,8 +13,9 @@ window.Modal = {
   },
 
   close: function close(){
+    console.log('a');
     $('.modal-pretty, .modal').fadeTo(150, 0, function(){
-      $('#main, .store-banner, .store-banner-2, .chat').removeClass('blur');
+      $('#main, .vendor-banner, .vendor-banner-2, .chat').removeClass('blur');
       $('.modal-pretty, .modal').hide();
       $('.overlay').hide();
       $('.chat').show();

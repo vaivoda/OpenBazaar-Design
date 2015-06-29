@@ -54,11 +54,6 @@ $(function() {
   	Navigation.setArrowOpacity();
 	}
 
-  function hideAllTheThings(){
-    $('#main, .store-banner, .store-banner-2, .chat').removeClass('blur');
-    $('.items, .store, .ob-icon, .item-detail, .store-settings, .store-banner, .store-banner-2, .store-footer, .button-try-again, .store-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases').hide();
-  }
-
   $(document).on("click", ".menu-store", settingsStore);
   // $(document).on("click", ".store-banner-2 .store-name, .store-banner-2 .store-avatar, .store-banner-2 .store-description", settingsStoreMeta);
 
