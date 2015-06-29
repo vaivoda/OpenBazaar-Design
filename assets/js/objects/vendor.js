@@ -8,7 +8,7 @@ window.Vendor = {
       event.stopPropagation();
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       Vendor.displayContracts(Vendor.find(vendorGuid), true, false);
-      
+
     });
     $(document).on("click", ".item-vendor-name, .vendor-banner .vendor-name, .vendor-banner .vendor-avatar, .vendor-home", function(event) { 
       event.stopPropagation();
@@ -25,23 +25,27 @@ window.Vendor = {
       var vendor = Vendor.find(vendorGuid);
       Vendor.displayDetails(store);
     });
-    $('.vendor-settings-primary-color').ColorPicker({
+    $('.user-configuration-primary-color').ColorPicker({
       color: defaultPrimaryColor,
       onChange: function (hsb, hex, rgb) {
-        setPrimaryColor(hex);
+        Vendor.setPrimaryColor(hex);
       } 
     });
-    $('.vendor-settings-secondary-color').ColorPicker({
+    $('.user-configuration-secondary-color').ColorPicker({
       color: defaultSecondaryColor,
       onChange: function (hsb, hex, rgb) {
-        setSecondaryColor(hex);
+        Vendor.setSecondaryColor(hex);
       } 
     });
-    $('.vendor-settings-font-color').ColorPicker({
+    $('.user-configuration-font-color').ColorPicker({
       color: defaultTextColor,
       onChange: function (hsb, hex, rgb) {
-        setTextColor(hex);
+        Vendor.setTextColor(hex);
       } 
+    });
+    $(document).on("click", ".vendor-meta-save", function(){
+      $('.overlay, .modal, .modal-vendor-meta').hide();
+      $('#main, .vendor-banner, .vendor-banner-2, .chat').removeClass('blur');      
     });
   },
 
@@ -157,23 +161,23 @@ window.Vendor = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, vendor-settings-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
-    $('.vendor-settings-primary-color').css('background-color', '#' + hex);
+    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, user-configuration-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
+    $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
     $store.colorprimary = '#' + hex;
   },
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .settings-item, .settings-item-meta-data, .vendor-banner-2, .vendor-details table, .vendor-settings-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
+    $('#header, .settings-item, .settings-item-meta-data, .vendor-banner-2, .vendor-details table, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
 
   setTextColor: function setTextColor(hex){  
     hex = hex.replace('#','');
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, vendor-settings-primary-color, .vendor-settings-items .settings-item-meta-data, .settings-add-new, .vendor-settings-items .settings-item-price, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
-    $('.vendor-settings-font-color').css('background-color', '#' + hex);
+    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, user-configuration-primary-color, .user-configuration-items .settings-item-meta-data, .settings-add-new, .user-configuration-items .settings-item-price, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
+    $('.user-configuration-font-color').css('background-color', '#' + hex);
     $('.settings-add-new').css('border-color', '#' + hex);
     $store.colortext = '#' + hex;
   }

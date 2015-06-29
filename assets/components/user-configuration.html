@@ -1,0 +1,32 @@
+<dom-module id="user-configuration">
+
+  <template>
+    <div class="user-configuration visibility-hidden">
+      <div class="user-configuration-items">
+        <div class="settings-contract settings-contract-new" data-type="new">
+          <div class="settings-contract-image opacity-0" data-type="new"><div class="settings-add-new">+</div></div>
+          <div class="settings-contract-meta-data" data-type="new">
+            <div class="position-padding-10px">
+              <div class="settings-contract-name settings-contract-name-new" data-type="new">Add Item</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-configuration-footer">
+        <div class="position-float-left position-margin-right-15px position-margin-left-15px position-margin-top-16px type-size-14px">Style</div>
+        <div class="user-configuration-color user-configuration-primary-color"></div>
+        <div class="user-configuration-color user-configuration-secondary-color"></div>
+        <div class="user-configuration-color user-configuration-font-color"></div>
+        <div class="user-configuration-buttons">
+          <button class="user-configuration-cancel button-primary type-weight-light">Cancel</button>
+          <button class="user-configuration-save button-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'user-configuration'});
+  </script>
+
+</dom-module>

@@ -33,10 +33,9 @@ window.Contract = {
     $('.store-settings-items').append('<div class="settings-item" data-store-guid="" data-item-id="' + id +'"><div class="settings-item-image opacity-0" data-store-guid="" data-item-id="' + id +'" style="background: url(' + $('.new-product-photo-1').val() + ') 50% 50% / cover no-repeat"><div class="settings-item-image-gradient"></div><div class="settings-item-buttons visibility-hidden"><button id="' + id + '" class="button-primary settings-item-edit position-margin-right-5px">Edit</button><button id="' + id + '" class="button-primary settings-item-delete">Delete</button></div></div><div class="settings-item-meta-data" data-store-guid=""><div class="position-padding-10px"><div class="settings-item-name" data-store-guid="" data-item-id="' + id +'">' + $('.new-product-name').val() + '</div><div class="settings-item-price position-margin-top-3px">' + $('.new-product-price').val() + ' btc</div></div>');
 
     // reset the colors
-    Vendor.setPrimaryColor($('.store-settings-primary-color').css('bgColor').replace('#',''));
-    Vendor.setSecondaryColor($('.store-settings-secondary-color').css('bgColor').replace('#',''));
-    Vendor.setTextColor($('.store-settings-font-color').css('bgColor').replace('#',''));
-
+    Vendor.setPrimaryColor($('.user-configuration-primary-color').css('bgColor'));
+    Vendor.setSecondaryColor($('.user-configuration-secondary-color').css('bgColor'));
+    Vendor.setTextColor($('.user-configuration-font-color').css('bgColor'));
 
     // hide stuffs
     $('#main, .store-banner, .store-banner-2, .chat').removeClass('blur');
