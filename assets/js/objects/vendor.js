@@ -8,7 +8,6 @@ window.Vendor = {
       event.stopPropagation();
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       Vendor.displayContracts(Vendor.find(vendorGuid), true, false);
-
     });
     $(document).on("click", ".item-vendor-name, .vendor-banner .vendor-name, .vendor-banner .vendor-avatar, .vendor-home", function(event) { 
       event.stopPropagation();

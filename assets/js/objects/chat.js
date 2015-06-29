@@ -14,16 +14,16 @@ window.Chat = {
       var id = $(event.currentTarget).parent().parent().data('id');
       Chat.viewDetails(id);
     });
-    $(document).on("click", ".store-message", function(event){
+    $(document).on("click", ".vendor-message", function(event){
       event.stopPropagation();
-      var storeGuid = $(event.currentTarget).attr('data-store-guid');
-      Chat.newConversation(Vendor.find(storeGuid));
+      var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
+      Chat.startNewChat(Vendor.find(vendorGuid));
     });
     $(document).on("click", ".modal-purchase-dispute", function(event){
       event.stopPropagation();
       var modGuid = $(event.currentTarget).attr('data-mod-guid');
       var mod = _.find(mods, function(mod){ return mod.guid == modGuid });
-      Chat.newConversation(mod);
+      Chat.startNewChat(mod);
       $('.input-chat-new-message').attr("placeholder","What are you disputing?");
     });
   },
@@ -82,6 +82,25 @@ window.Chat = {
     Chat.viewDetails(id);
   },
 
+  startNewChat: function startNewChat(vendor){
+    Chat.loadMessages();
+    if ($('.chat').css('bottom') === "-310px"){
+      $('.chat-count').hide();
+      $('.chat-close').show();
+      $('.chat').css('bottom','0px');
+    }
+
+    $('.chat-conversations ul').prepend('<li class="chat-view-details"><div class="chat-holder"><div class="chat-avatar" style="background: url(' + vendor.avatar + ') 100% 100% / cover no-repeat"></div><div class="chat-message"><div class="chat-name">' + vendor.handle +  '</div><div></div></div></div></li>');
+    $('.chat-conversations').scrollTop(0);
+    $('.chat-conversations').css('overflow','hidden');
+    $('.chat-message').hide();
+    $('.chat-conversation-detail').show();
+    $('.chat-conversation-detail-body').empty();
+    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left"> ' + Vendor.handle(vendor) + '</div>');
+    $('.chat-avatar').not('.chat-avatar:first').fadeTo(150, 0.15);
+    $('.input-chat-new-message').focus();
+  },
+  
   toggle: function toggle(event){
     event.stopPropagation();
     if ($('.chat').css('bottom') === "-310px"){
