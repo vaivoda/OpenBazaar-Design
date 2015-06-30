@@ -28,7 +28,7 @@ app.on('ready', function() {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.loadUrl('http://localhost:9080/index.html');
 
   // Open the devtools.
   // mainWindow.openDevTools();
