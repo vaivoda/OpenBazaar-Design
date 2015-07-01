@@ -1,10 +1,9 @@
 
 .contracts {
-  margin: auto;
+  margin: 30px auto 100px auto;
   text-align: left;
-  width: 1100px;
-  margin-bottom: 100px;
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 1100px;
 }
 
 .contract,
@@ -53,14 +52,13 @@
 .contract-detail {
   font-family: "font-medium";
   margin: auto;
+  min-height: 580px;
+  position: relative;
   text-align: left;
   width: 1100px;
 }
 
-
 .contract-detail-meta {
-  border-radius: 4px;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
   float: left;
   margin-left: 30px;
   padding: 20px;

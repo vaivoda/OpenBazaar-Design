@@ -28,6 +28,7 @@ $(function() {
 
   // events
   $(document).on("keyup", keypress);
+  $('#main').on("scroll", scroll);
 
   // functions
 	function start(){
@@ -47,6 +48,18 @@ $(function() {
     
   	Navigation.setArrowOpacity();
 	}
+
+  function scroll(){
+    if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && $('#main').scrollTop() >= 160){
+      $(".vendor-navigation").addClass('vendor-navigation-docked');
+      $(".vendor").css('margin-top', '64px');
+      $(".contract-detail").css('margin-top', '64px');
+    }else{
+      $(".vendor-navigation").removeClass('vendor-navigation-docked');
+      $(".vendor").css('margin-top', '0');
+      $(".contract-detail").css('margin-top', '0');
+    }
+  }
 
   start();
 });

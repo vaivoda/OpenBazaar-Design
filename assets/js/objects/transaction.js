@@ -54,6 +54,9 @@ window.Transaction = {
         $('.modal-navigation ul li:nth-child(4)').show();
         break;
       case "case":
+        $('.modal-purchase-dispute').hide();
+        $('.modal-purchase-release-funds, .modal-purchase-request-funds').show();
+        $('.modal-navigation ul li:nth-child(4)').show();
         break;
     }
 

@@ -6,8 +6,8 @@ h1 {
 
 h2 {
   font-family: "font-medium";
-  font-size: 15px;
-  line-height: 15px;
+  font-size: 18px;
+  line-height: 18px;
   letter-spacing: .2px;
 }
 
@@ -19,11 +19,12 @@ a {
 
 p,
 span {
+  font-family: "font-medium";
   font-size: 14px;
 }
 
 .type-opacity {
-  opacity: .75;
+  opacity: .80;
 }
 
 .type-align-right {

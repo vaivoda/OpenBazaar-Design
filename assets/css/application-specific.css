@@ -58,7 +58,6 @@ table thead tr td:last-child{
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
 }
 
-
 .transactions-purchases table td {
   border-bottom: solid 1px #327EB8; 
 }
@@ -83,7 +82,6 @@ table thead tr td:last-child{
   clear: both;
   height: 94%;
   overflow-y: auto;
-  padding-top: 30px;
   top: 50px;
   position: relative;
 }
@@ -155,6 +153,13 @@ border:1px solid red;
   z-index: 50;
 }
 
+.pod {
+  background-color: #327eb8;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
+  padding: 20px;
+  position: relative;
+}
 
 @media
 only screen and (-webkit-min-device-pixel-ratio: 1.25),

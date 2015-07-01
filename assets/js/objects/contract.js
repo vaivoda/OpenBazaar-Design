@@ -9,6 +9,8 @@ window.Contract = {
     $(document).on("click", ".contract-trade-payment-type-next", function(event){ Contract.displayTradeFlowAddress() });
     $(document).on("click", ".contract-trade-address-next", function(event){ Contract.displayTradeFlowSummary() });
     $(document).on("click", ".new-product-save", function(){ Contract.create() });
+    $(document).on("mouseover", ".item", function(event){ Contract.hover(event) });
+    $(document).on("mouseleave", ".item", function(event){ Contract.unhover(event) });
   },
 
   create: function create(){
@@ -77,6 +79,7 @@ window.Contract = {
     $('.contracts').hide();
     Navigation.stripPageHistory();
     Navigation.setArrowOpacity();
+    Vendor.setActiveTab();
     Contract.renderContractDetail(vendor, contract, true);
   },
 
@@ -112,7 +115,16 @@ window.Contract = {
   },
 
   find: function find(id){
-    return _.find($store, function(item){ return item.id == id });     
+    return _.find($store, function(contract){ return contract.id == id });     
+  },
+
+  hover: function hover(event){
+    $(event.currentTarget).css('background-color', 'transparent');
+    $(event.currentTarget).find('.contract-image').animate({top: '2px'}, 200, 'easeOutQuad');
+  },
+
+  unhover: function unhover(event){
+    $(event.currentTarget).find('.contract-image').animate({top: 0}, 200, 'easeOutQuad');
   },
 
   renderGridContract: function renderGridContract(vendor, contract, div){
@@ -177,13 +189,14 @@ window.Contract = {
       $('.contract-detail-meta').css('background', vendor.colorsecondary);
       $('.contract-detail').fadeIn('slow');
     }else{
-      $('.vendor, .vendor-banner, .vendor-footer, .contracts, .ob-icon, .button-try-again').hide();
+      $('.vendor, .vendor-banner, .contracts, .ob-icon, .button-try-again').hide();
       $('.connecting').fadeIn();
       $('.loading-icon').attr('src', vendor.avatar).show();
       $('.loading-message').html('Connecting to ' + Vendor.handle(vendor));
       Connect.load();
-      $('body, .navigation-controls, .navigation-controls span, .button-try-again, .control-panel li, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
-      $('#header, .contract-meta-data, .vendor-contracts .contract, .vendor-details table, .vendor-banner, .vendor-footer, .contract-detail-meta').animate({ backgroundColor: vendor.colorsecondary }, fade);
+      Vendor.setSecondaryColor(vendor.colorsecondary);
+      Vendor.setPrimaryColor(vendor.colorprimary);
+      Vendor.setTextColor(vendor.colortext);
       setTimeout(function(){  
         if (Connect.toVendor()){
           $('.contract, .connecting').hide();
@@ -191,7 +204,7 @@ window.Contract = {
           $('.vendor-home').attr('data-vendor-guid', vendor.guid);
           $('.vendor-description').html(vendor.description);
           $('.vendor-avatar').css('background-image', 'url(' + vendor.avatar + ')').attr('data-vendor-guid', vendor.guid);
-          $('.vendor-banner, .vendor-footer').show();
+          $('.vendor-banner, .vendor-navigation').show();
           $('.contract-detail-name').html(contract.name);
           $('.contract-detail-description').html(contract.description);
           $('.contract-detail-image').css('background-image', 'url(' + contract.photo1 + ')');

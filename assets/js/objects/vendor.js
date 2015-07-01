@@ -8,6 +8,8 @@ window.Vendor = {
       event.stopPropagation();
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       Vendor.displayContracts(Vendor.find(vendorGuid), true, false);
+      Vendor.setActiveTab();
+      $('.vendor-home').addClass('vendor-navigation-selected');
     });
     $(document).on("click", ".item-vendor-name, .vendor-banner .vendor-name, .vendor-banner .vendor-avatar, .vendor-home", function(event) { 
       event.stopPropagation();
@@ -23,6 +25,11 @@ window.Vendor = {
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       var vendor = Vendor.find(vendorGuid);
       Vendor.displayDetails(vendor);
+      Vendor.setSecondaryColor(vendor.colorsecondary);
+      Vendor.setPrimaryColor(vendor.colorprimary);
+      Vendor.setTextColor(vendor.colortext);
+      Vendor.setActiveTab();
+      $('.vendor-dets').addClass('vendor-navigation-selected');
     });
     $('.user-configuration-primary-color').ColorPicker({
       color: defaultPrimaryColor,
@@ -52,25 +59,6 @@ window.Vendor = {
     stores.push($store);
   },
 
-  find: function find(guid){  
-    return _.find(vendors, function(vendor){ return vendor.guid == guid });
-  },  
-
-  findByHandle: function findByHandle(handle){  
-    return _.find(vendors, function(vendor){ return vendor.handle == handle.replace('@','') });
-  },  
-
-  displayDetails: function displayDetails(vendor){  
-    Helper.hideAll();
-    $('.vendor, .vendor-banner').show();
-    $('.vendor-details').fadeIn();
-    $('.vendor-details-website').html('<a href="' + vendor.website + '" target="_blank">' + vendor.website + '</a>');
-    $('.vendor-details-email').html(vendor.email);
-    $('.vendor-details-public-key').html(vendor.publicKey);
-    $('.vendor-details-pledge').html(vendor.pledge);
-    $('.vendor-details-pgp-key').html($.parseHTML(vendor.pgpKey));
-  },
-  
   displayContracts: function displayContracts(vendor, updatePageViews, instant, autoConnect){  
     if (instant){ delay = 0; fade = 0; } else {  delay = 1900; fade = 500; }
     $('.contracts, .vendor-contracts').empty();
@@ -85,17 +73,19 @@ window.Vendor = {
     });
 
     Helper.hideAll();
-    Vendor.setPrimaryColor(vendor.colorprimary);
     Vendor.setSecondaryColor(vendor.colorsecondary);
+    Vendor.setPrimaryColor(vendor.colorprimary);
     Vendor.setTextColor(vendor.colortext);
+    Vendor.setActiveTab();
+    $('.vendor-home').addClass('vendor-navigation-selected');
     $('.connecting').fadeIn();
     $('.loading-icon').attr('src', vendor.avatar).show();
     $('.vendor-message').attr('data-vendor-guid', vendor.guid);
     $('.loading-message').html('Connecting to ' + Vendor.handle(vendor));
     Connect.load();
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
+    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .vendor-navigation-selected, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
     $('.item-meta-data, .item-price').animate({ color: vendor.colortext }, fade);
-    $('#header, .item-meta-data, .item-image, .contracts .item, .vendor-banner, .vendor-details table').animate({ backgroundColor: vendor.colorsecondary }, fade);
+    $('#header, .item-meta-data, .item-image, .contracts .item, .vendor-banner, .vendor-navigation, .pod').animate({ backgroundColor: vendor.colorsecondary }, fade);
     setTimeout(function(){  
       if (Connect.toVendor() ||  autoConnect){
         $('.contracts, .connecting').hide();
@@ -105,7 +95,7 @@ window.Vendor = {
         $('.vendor-dets').attr('data-vendor-guid', vendor.guid);
         $('.vendor-description').html(vendor.description);
         $('.vendor-avatar').css('background-image', 'url(' + vendor.avatar + ')').attr('data-vendor-guid', vendor.guid);
-        $('.vendor-banner, .vendor-footer').show();
+        $('.vendor-banner, .vendor-navigation').show();
         if (instant){
           $('.vendor').show();
         }else{
@@ -119,19 +109,24 @@ window.Vendor = {
     }, delay);
   }, 
 
-  tradeBackToPayment: function tradeBackToPayment(){
-    Modal.setTitle('Payment type');
-    $('.modal-trade-flow-address').hide();
-    $('.modal-trade-flow-payment-type').show();
+  displayDetails: function displayDetails(vendor){  
+    Helper.hideAll();
+    $('.vendor, .vendor-banner, .vendor-navigation').show();
+    $('.vendor-details').fadeIn('fast');
+    $('.vendor-details-website').html('<a href="' + vendor.website + '" target="_blank">' + vendor.website + '</a>');
+    $('.vendor-details-email').html(vendor.email);
+    $('.vendor-details-public-key').html(vendor.publicKey);
+    $('.vendor-details-pledge').html(vendor.pledge);
+    $('.vendor-details-pgp-key').html($.parseHTML(vendor.pgpKey));
   },
+  
+  find: function find(guid){  
+    return _.find(vendors, function(vendor){ return vendor.guid == guid });
+  },  
 
-  tradeBackToAddress: function tradeBackToAddress(){
-    var image = $('.item-detail-image').css('background-image');
-    Modal.setTitle('Ship to');
-    $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat'); 
-    $('.modal-trade-flow-summary').hide();
-    $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();
-  },
+  findByHandle: function findByHandle(handle){  
+    return _.find(vendors, function(vendor){ return vendor.handle == handle.replace('@','') });
+  },  
 
   handle: function handle(vendor){  
     if (vendor.handle){
@@ -141,6 +136,10 @@ window.Vendor = {
     }   
     return name;
   }, 
+
+  setActiveTab: function setActiveTab(event){
+    $('.vendor-navigation ul li').removeClass('vendor-navigation-selected');
+  },
 
   setDefualtColors: function setDefualtColors(instant){
     if (instant){
@@ -164,15 +163,16 @@ window.Vendor = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
+    $('body, .navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
+    $('.vendor-navigation').css('border-color', '#' + hex);
     $store.colorprimary = '#' + hex;
   },
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .settings-contract, .settings-contract-meta-data, .contract-meta-data, .vendor-banner-2, .vendor-details table, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
+    $('#header, .settings-contract, .vendor-navigation, .vendor-navigation ul li, .settings-contract-meta-data, .contract-meta-data, .vendor-banner-2, .pod, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
@@ -183,5 +183,19 @@ window.Vendor = {
     $('.user-configuration-font-color').css('background-color', '#' + hex);
     $('.settings-add-new').css('border-color', '#' + hex);
     $store.colortext = '#' + hex;
-  }
+  },
+
+  tradeBackToPayment: function tradeBackToPayment(){
+    Modal.setTitle('Payment type');
+    $('.modal-trade-flow-address').hide();
+    $('.modal-trade-flow-payment-type').show();
+  },
+
+  tradeBackToAddress: function tradeBackToAddress(){
+    var image = $('.item-detail-image').css('background-image');
+    Modal.setTitle('Ship to');
+    $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat'); 
+    $('.modal-trade-flow-summary').hide();
+    $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();
+  },
 }
