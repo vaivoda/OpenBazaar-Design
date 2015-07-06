@@ -19,8 +19,14 @@ window.Search = {
 
   byHandle: function byHandle(handle){
     var tmpStore = Vendor.findByHandle(handle);
-    Vendor.displayContracts(tmpStore, true, false);
-    Navigation.setPageUrl(tmpStore.guid);
+    if(tmpStore){
+      Vendor.displayContracts(tmpStore, true, false);
+      Navigation.setPageUrl(tmpStore.guid);
+    }else{
+      var user = User.find(handle);
+      User.view(user, true);
+      Navigation.setPageUrl(user.handle);
+    }
   },
 
   byKeyword: function byKeyword(keyword){

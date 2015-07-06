@@ -19,6 +19,11 @@ window.Chat = {
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       Chat.startNewChat(Vendor.find(vendorGuid));
     });
+    $(document).on("click", ".user-profile-message", function(event){
+      event.stopPropagation();
+      var handle = $(event.currentTarget).attr('data-user-handle');
+      Chat.startNewChat(User.find(handle));
+    });
     $(document).on("click", ".modal-purchase-dispute", function(event){
       event.stopPropagation();
       var modGuid = $(event.currentTarget).attr('data-mod-guid');
@@ -82,7 +87,7 @@ window.Chat = {
     Chat.viewDetails(id);
   },
 
-  startNewChat: function startNewChat(vendor){
+  startNewChat: function startNewChat(message){
     Chat.loadMessages();
     if ($('.chat').css('bottom') === "-310px"){
       $('.chat-count').hide();
@@ -90,13 +95,13 @@ window.Chat = {
       $('.chat').css('bottom','0px');
     }
 
-    $('.chat-conversations ul').prepend('<li class="chat-view-details"><div class="chat-holder"><div class="chat-avatar" style="background: url(' + vendor.avatar + ') 100% 100% / cover no-repeat"></div><div class="chat-message"><div class="chat-name">' + vendor.handle +  '</div><div></div></div></div></li>');
+    $('.chat-conversations ul').prepend('<li class="chat-view-details"><div class="chat-holder"><div class="chat-avatar" style="background: url(' + message.avatar + ') 100% 100% / cover no-repeat"></div><div class="chat-message"><div class="chat-name">' + message.handle +  '</div><div></div></div></div></li>');
     $('.chat-conversations').scrollTop(0);
     $('.chat-conversations').css('overflow','hidden');
     $('.chat-message').hide();
     $('.chat-conversation-detail').show();
     $('.chat-conversation-detail-body').empty();
-    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left"> ' + Vendor.handle(vendor) + '</div>');
+    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left"> ' + message.handle + '</div>');
     $('.chat-avatar').not('.chat-avatar:first').fadeTo(150, 0.15);
     $('.input-chat-new-message').focus();
   },

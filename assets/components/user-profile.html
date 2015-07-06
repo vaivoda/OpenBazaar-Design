@@ -1,0 +1,32 @@
+<dom-module id="user-profile">
+
+  <link href="/assets/css/user-profile.css" rel="stylesheet">
+
+  <template>        
+    <div class="user-profile visibility-hidden">
+      <div class="user-profile-photo-holder"><div class="user-profile-photo"></div><div class="user-profile-avatar"></div><div class="user-profile-handle"></div><div class="user-profile-photo-shadow"></div></div>
+      <div class="user-profile-navigation">
+        <ul>
+          <li class="user-profile-navigation-selected" data-section="user-profile-about">About</li>
+          <li data-section="user-profile-following">Following</li>
+        </ul>
+      </div>
+
+      <div class="user-profile-body">
+        <div class="user-profile-about type-line-height-18px "></div>
+        <table class="user-profile-following position-margin-0 visibility-hidden"></table>
+      </div>
+      <div class="user-profile-footer">
+        <button class="button-first user-profile-message">Message</button>
+        <button class="user-profule-follow">Follow</button>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'user-profile'});
+  </script>
+  <script src="/assets/js/objects/user.js"></script>
+
+
+</dom-module>

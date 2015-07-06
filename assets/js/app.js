@@ -50,7 +50,7 @@ $(function() {
 	}
 
   function scroll(){
-    if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && $('#main').scrollTop() >= 160){
+    if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && $('#main').scrollTop() >= 168){
       $(".vendor-navigation").addClass('vendor-navigation-docked');
       $(".vendor").css('margin-top', '64px');
       $(".contract-detail").css('margin-top', '64px');

@@ -81,6 +81,14 @@ window.Navigation = {
           Navigation.setAsCurrentPage(nextPage);
           Navigation.setPageUrl(store.guid);
           break;
+        case "user":
+          console.log(nextPage);
+          var user = User.find(nextPage.handle);
+          User.view(user, false);
+          Navigation.unsetActivePage();
+          Navigation.setAsCurrentPage(nextPage);
+          Navigation.setPageUrl(user.handle);
+          break;
       }
     } 
       Navigation.setArrowOpacity();
@@ -113,6 +121,13 @@ window.Navigation = {
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(previousPage);
           Navigation.setPageUrl(store.guid);
+          break;
+        case "user":
+          var user = User.find(previousPage.handle);
+          User.view(user, false);
+          Navigation.unsetActivePage();
+          Navigation.setAsCurrentPage(previousPage);
+          Navigation.setPageUrl(user.handle);
           break;
       }
     }

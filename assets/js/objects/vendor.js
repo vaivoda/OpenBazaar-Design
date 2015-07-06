@@ -90,7 +90,8 @@ window.Vendor = {
       if (Connect.toVendor() ||  autoConnect){
         $('.contracts, .connecting').hide();
         $('.vendor-contracts, .vendor-buttons').show();
-        $('.vendor-name').html(Vendor.handle(vendor)).attr('data-vendor-guid', vendor.guid);
+        $('.vendor-name').html(Vendor.name).attr('data-vendor-guid', vendor.guid);
+        $('.vendor-handle').html(vendor.handle).attr('data-vendor-guid', vendor.guid);
         $('.vendor-home').attr('data-vendor-guid', vendor.guid);
         $('.vendor-dets').attr('data-vendor-guid', vendor.guid);
         $('.vendor-description').html(vendor.description);

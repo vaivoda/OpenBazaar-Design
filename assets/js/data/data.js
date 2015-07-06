@@ -1,4 +1,103 @@
 var messages = ['#obfreetrade', 'we &#10084; free trade', '&#128163; &#128163; &#128163; the fees', 'in bitcoin we trust', 'i heard e&#128169;ay is cool'];
+var users = [
+	{
+		"id": 1,
+		"avatar": "https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg",
+    "colorprimary": "#4A4848",
+    "colorsecondary": "#6A6565",
+    "colortext": "#fff",
+		"description": "UX / Design dude out of Chicago focused on making Bitcoin and Bitcoin applications more user friendly for the world to use.",
+		"handle": "@wolf",
+		"name": "Mike Wolf",
+		"following": [
+			{
+				"id":"2",
+				"handle":"@mike",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg"
+			},
+			{
+				"id":"3",
+				"handle":"@matt",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg"
+			},
+			{
+				"id":"4",
+				"handle":"@jack",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
+			},
+			{
+				"id":"2",
+				"handle":"@mike",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg"
+			},
+			{
+				"id":"3",
+				"handle":"@matt",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg"
+			},
+			{
+				"id":"4",
+				"handle":"@jack",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
+			},
+			{
+				"id":"2",
+				"handle":"@mike",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg"
+			},
+			{
+				"id":"3",
+				"handle":"@matt",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg"
+			},
+			{
+				"id":"4",
+				"handle":"@jack",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
+			},
+		]
+	},
+	{
+		"id": 2,
+		"avatar": "http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg",
+    "colorprimary": "#572E3A",
+    "colorsecondary": "#332521",
+    "colortext": "#fff",
+		"description": "UX / Design dude out of Chicago focused on making Bitcoin and Bitcoin applications more user friendly for the world to use.",
+		"handle": "@mike",
+		"name": "Mike",
+		"following": []
+	},
+	{
+		"id": 3,
+		"avatar": "http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg",
+    "colorprimary": "#DFC79B",
+    "colorsecondary": "#C2A777",
+    "colortext": "#fff",
+		"description": "I'm a cat, meooooow.",
+		"handle": "@matt",
+		"name": "Matt",
+		"following": [
+			{
+				"id":"4",
+				"handle":"@jack",
+				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
+			},
+		]
+	},
+	{
+		"id": 4,
+		"avatar": "http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg",
+    "colorprimary": "#A6487A",
+    "colorsecondary": "#B83359",
+    "colortext": "#fff",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"handle": "@jack",
+		"name": "Jack",
+		"following": []
+	},
+]
+
 var chats = [
 {
 	"id": 1,
@@ -128,6 +227,7 @@ var vendors = [
     "colorsecondary": "#B3343A",
     "website": "http://rhythmandpoetry.com",
     "email": "music@rhythmandpoetry.com",
+    "hero": "http://saimg-a.akamaihd.net/saatchi/327735/art/2115716/1241144-MYVOMOVN-8.jpg",
     "publicKey": "04b166adcfdaa1c3f707b6ddbe7541fd9d5a2a1aecd55e4af0818beb7b937b7d82c21895274ca7aa5f24048b083853f6cbbf171175ae6f3ac50ce687f0423850a8",
     "pledge": "7.0",
     "pgpKey": "-----BEGIN PGP PUBLIC KEY BLOCK-----<br />Version: GnuPG v1mQINBFV6Z7YBEADnzmU/DP/hr/WuOcO2ic9lhhPBEFJTtRS6/m4mnwfkpiwR//fQM2SG5S47NRs/n3bKJw6gKTU9WEE+UBaXTEeTUd/W/e8e8TriIiyY0SUd6Ci7ajwV8OmUIbaW2L72HTxCqP7rFRCsx+wve5UNIJhOTwII13nINvU8JlKeAVBQ/6hbUw6Y63XqbLQz+EEIxbX2Nm6XHcTpAkINAcABrwm8zVgaQcDuAjjy3J+gXZx6TNQ7OGn5s8f7z+c5UAOePxM2Qp+3s77rXlQEIak62CtImIMHVpEG6ELTwVTJTFzYpOaH1AsqoPjJpb1L432PmcISWco9wdCVDHzhDzsr5w07zxnr0wUk4o5zBs3q1OVG4jSwoIahU3aLM4RaambLjvnPM9ci5xm4tmN9cc8FkDsUnvMyGZp4QirMIoklsl5lXWyZ/NGdFBrXGK31A6Qzv8okFMu496L7dSsZ1I2mX5CFvhfVhiPn3fSYnL9SraohaT9F6z6Ux6fEfNu5kHaJIbuQcPJd5mTPryXSol5YRXK+F/lp/tUmFaNXJS6CTZ4xuINicGefvxhIvryduMyoGITk5ZednwSef1lBtVfgiSBA5b30Y7DxMp4sMuYogRMoBFEQRpkvuKVwxtttT7GZuyNYiu6Pb7pyTFCZ61J0VbzQ9C+u3F9avnuvck3RNUoKpQARAQABtEVBdXRvZ2VuZXJhdGVkIEtleSAoQXV0b2dlbmVyYXRlZCBieSBPcGVuIEJhemFhcikgPHBncEBvcGVuYmF6YWFyLm9yZz6JAjgEEwECACIFAlV6Z7YCGy8GCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEMS3I86XKvrIfkIP/2UlsREb3P8V0mw+UQfx1GPGT/JVOoP4FLfKuambbLv3uuBFic2YnEcBXBvMWmVQAQv0XTj/fJfhDOF/OpYYbHiv4zyYntSMotephSSMHp/vdicveaVbvBs8D2TP6CGL78dGZefUCwWPLOCSFsHnmUzNdrZFBdfYoiR07A0udQJDqAsv0f9Qw6iCGJ6On47be26FkHZvKURDGTyX6UWhTyHw2WhKSq3tqmaKnjLkr2Vh1OiFuyBvA94AxO0lLtxesG4rP+OzGeAnsoCukCyhrxGvMzRSC1asd0MzG5TgVZncEffwzlB2fhbU7BpgIAbDcnVRPVxWhSH9OQVp60V4/mvinzEZu4Ish7Jpz7m1HK4POYhkIo05aK3D/uKuOrl/kkYwsy4TwmqwcA56pDd7TrpCWjb9Flo5VdabIFWR37UeNDnOfmaAJMC2HyBAHHmYO6rnnvYJPVobmlW66g8zjwWDkV9JU3wfxaB7YjkeSR5r/sANhStLPpX5JopY/FtQ1gnFAbJnl5xwNk07MPn33dvmez5Cio++gn9xMZsxrJpNSskkkPndpOXrL1ns/JS4fBO1yfjWcezs6ScBoDmpQBoqc6v/7NTVI1Q0E+ZaneUk9tn+NOzif74cSNRtWkcY21Iao11rssCK4SpMWDpqD0etkY7hD5TQkfQOLIvPfHGd=eRxO<br />-----END PGP PUBLIC KEY BLOCK-----",
@@ -166,6 +266,7 @@ var vendors = [
     "colorprimary": "#258B9E",
     "colorsecondary": "#4A92A4",
     "website": "http://rhythmandpoetry.com",
+    "handle": "@rhythm",
     "email": "music@rhythmandpoetry.com",
     "publicKey": "04b166adcfdaa1c3f707b6ddbe7541fd9d5a2a1aecd55e4af0818beb7b937b7d82c21895274ca7aa5f24048b083853f6cbbf171175ae6f3ac50ce687f0423850a8",
     "pledge": "7.0",
