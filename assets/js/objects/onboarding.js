@@ -137,6 +137,7 @@ window.Onboarding = {
     Onboarding.setTitle('Bitcoin address');
     $('.onboarding-bitcoin-address, .onboarding-button-back, .onboarding-button-skip').show();
     $('.onboarding').attr('data-active-step', 'bitcoin-address');
+    $('.bitcoin-address').focus();
   },
 
   renderHandle: function renderHandle(){

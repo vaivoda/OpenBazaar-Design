@@ -49,6 +49,10 @@ table thead tr td:last-child{
   border-top-right-radius: 3px;
 }
 
+.border-bottom-0 {
+  border-bottom: 0 !important;
+}
+
 .transactions {
   margin: auto;
   text-align: left;

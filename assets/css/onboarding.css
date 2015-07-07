@@ -20,6 +20,14 @@
   background: #327EB8;
 }
 
+.onboarding .input{
+  color: #fff;
+}
+
+.onboarding .input::-webkit-input-placeholder {
+   color: #79A9C9;
+}
+
 .onboarding label {
   color: #fff;
   clear: none;
