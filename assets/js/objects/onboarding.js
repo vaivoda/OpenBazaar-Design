@@ -12,7 +12,7 @@ window.Onboarding = {
   close: function close(){
     Helper.setDefualtColors();
     $('.onboarding').hide();
-    $('.connecting').show();
+    $('.connecting, .chat').show();
     Connect.load();
     Chat.loadMessages();
     Navigation.setArrowOpacity();  
@@ -20,8 +20,10 @@ window.Onboarding = {
   },
 
   loadContributors: function loadContributors(){
+    $('.onboarding-contributors-list').empty();
     _.each(contributors, function(person, index){
-      $('.onboarding-contributors-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-12px user-profile-link" data-user-handle="' + person.handle + '">' + person.name + ' <div class="type-opacity position-margin-top-2px">' + person.handle + '</div></div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
+      $('.onboarding-contributors-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-12px user-profile-link" data-user-handle="' + person.handle + '">' + person.name + ' <div class="type-opacity position-margin-top-2px">' + person.handle + '</div></div></td></tr>');
+      // <td class=""><button class="button-primary position-float-right">Follow</button></td>
     });
   },
 
@@ -94,7 +96,11 @@ window.Onboarding = {
   },
 
   renderLocation: function renderLocation(){
+    $('.onboarding-location-list').empty();
     Onboarding.setTitle('Select your country');
+    _.each(countries, function(country, index){
+      $('.onboarding-location-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + country + '" name="country" /> <label for="' + country + '">' + country + '</td></tr>');
+    });
     $('.onboarding-location, .onboarding-button-back, .onboarding-button-next').show();
     $('.onboarding').attr('data-active-step', 'location');   
   },
@@ -147,7 +153,7 @@ window.Onboarding = {
 
   show: function show(){
     Onboarding.loadContributors();
-    $('body').css('background', '#2A2A2A')
-    $('.onboarding').fadeTo(100,100);
+    $('body').css('background', '#0B4564')
+    setTimeout(function(){ $('.onboarding').fadeTo(100,100) }, 500);
   }
 }

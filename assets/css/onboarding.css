@@ -20,6 +20,18 @@
   background: #327EB8;
 }
 
+.onboarding label {
+  color: #fff;
+  clear: none;
+  float: left;
+  margin-left: 12px;
+  margin-top: 3px;
+}
+
+.onboarding input[type='radio'] {
+  float: left;
+}
+
 .onboarding .onboarding-photo-holder {
   height: 250px;
   width: 525px;
@@ -97,7 +109,7 @@
 }
 
 .onboarding .onboarding-footer button.button-first {
-  border-right: 1px solid white;
+  border-right: 1px solid #086A9E;
 }
 
 .onboarding .onboarding-photo {
