@@ -33,7 +33,7 @@ window.Discover = {
         Discover.populateFeed();
       }, delay);
     }
-    Vendor.setDefualtColors(false);
+    Helper.setDefualtColors(false);
   },
 
   populateFeed: function populateFeed(){

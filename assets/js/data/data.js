@@ -1,4 +1,57 @@
 var messages = ['#obfreetrade', 'we &#10084; free trade', '&#128163; &#128163; &#128163; the fees', 'in bitcoin we trust', 'i heard e&#128169;ay is cool'];
+var contributors = [
+	{
+		"name": "Luis	Hammond",
+		"handle": "@luis",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"
+	},
+	{
+		"name": "Isabel	Taylor",
+		"handle": "@isabel",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/_arashasghari/128.jpg"
+	},
+	{
+		"name": "Tami	Goodwin",
+		"handle": "@pixeliris",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"
+	},
+	{
+		"name": "Bert	Pierce",
+		"handle": "@teclaro",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/teclaro/128.jpg"
+	},
+	{
+		"name": "Jeffery	Leonard",
+		"handle": "@jasongraphix",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jasongraphix/128.jpg"
+	},
+	{
+		"name": "Mike Wolf",
+		"handle": "@wolf",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"
+	},
+	{
+		"name": "Dolores	Bennett",
+		"handle": "@mijustin",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg"
+	},
+	{
+		"name": "Jose	Patrick",
+		"handle": "@nzcode",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nzcode/128.jpg"
+	},
+	{
+		"name": "Inez	Stokes",
+		"handle": "@peterme",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/peterme/128.jpg"
+	},
+	{
+		"name": "Cecelia	Gonzalez",
+		"handle": "@allisongrayce",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/allisongrayce/128.jpg"
+	},
+]
+
 var users = [
 	{
 		"id": 1,

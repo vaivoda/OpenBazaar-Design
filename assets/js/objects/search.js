@@ -38,7 +38,7 @@ window.Search = {
     $('.connecting').fadeIn();
     $('.item').fadeTo(0, 0);
     Connect.load();
-    Vendor.setDefualtColors(false);
+    Helper.setDefualtColors(false);
     setTimeout(function(){  
       Discover.contracts(false, false);
     }, delay);

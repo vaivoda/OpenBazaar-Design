@@ -32,10 +32,7 @@ $(function() {
 
   // functions
 	function start(){
-		Connect.load();
-		Chat.loadMessages();
-		Navigation.setArrowOpacity();
-		setTimeout(function(){ Discover.populateFeed() }, delay);
+    Onboarding.show();
 	}
 
 	function keypress(e){

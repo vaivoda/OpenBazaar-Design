@@ -1,0 +1,38 @@
+<dom-module id="user-onboarding">
+
+  <link href="../css/onboarding.css" rel="stylesheet">
+
+  <template>
+    <div class="onboarding visibility-hidden" data-active-step="contributors">
+      <div class="onboarding-photo-holder"><div class="onboarding-photo"></div><div class="onboarding-icon"></div><div class="onboarding-photo-text">OpenBazaar is an open-source project created by hundreds of contributors with the primary goal of giving the world free trade</div><div class="onboarding-photo-shadow"></div></div>
+      <div class="onboarding-header">Contributors</div>
+
+      <div class="onboarding-body">
+        <div class="onboarding-contributors onboarding-step">
+          <table class="onboarding-contributors-list position-margin-0"></table>
+        </div>
+        <div class="onboarding-location onboarding-step visibility-hidden"></div>
+        <div class="onboarding-currency onboarding-step visibility-hidden"></div>
+        <div class="onboarding-timezone onboarding-step visibility-hidden"></div>
+        <div class="onboarding-user-role onboarding-step visibility-hidden"></div>
+        <div class="onboarding-bitcoin-address onboarding-step visibility-hidden"></div>
+        <div class="onboarding-handle onboarding-step visibility-hidden"></div>
+        <div class="onboarding-avatar onboarding-step visibility-hidden"></div>
+        <div class="onboarding-final onboarding-step visibility-hidden"></div>
+      </div>
+      <div class="onboarding-footer">
+        <button class="onboarding-button-start position-width-100">Get started</button>
+        <button class="button-first onboarding-button-back visibility-hidden">Back</button>
+        <button class="onboarding-button-close visibility-hidden">Close</button>
+        <button class="onboarding-button-next visibility-hidden">Next</button>
+        <button class="onboarding-button-skip visibility-hidden">Skip</button>
+      </div>      
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'user-onboarding'});
+  </script>
+  <script src="../js/objects/onboarding.js"></script>
+
+</dom-module>
