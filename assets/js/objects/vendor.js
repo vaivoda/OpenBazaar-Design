@@ -142,18 +142,6 @@ window.Vendor = {
     $('.vendor-navigation ul li').removeClass('vendor-navigation-selected');
   },
 
-  setDefualtColors: function setDefualtColors(instant){
-    if (instant){
-      $('body, .navigation-controls, .navigation-controls span, .control-panel li').css('background', defaultPrimaryColor);
-      $('#header, .item-meta-data').css('background', defaultSecondaryColor); 
-      $('.item-price, .item-meta-data').css('color', defaultTextColor); 
-    }else{
-      $('body, .navigation-controls, .navigation-controls span, .control-panel li').animate({ backgroundColor: defaultPrimaryColor, color: defaultTextColor }, fade);
-      $('#header, .item-meta-data').animate({ backgroundColor: defaultSecondaryColor }, fade);  
-      $('.item-meta-data, .item-price').animate({ color: defaultTextColor });
-    }
-  },
-
   setMetaData: function setMetaData(){
     $store.name = $('.store-meta-name').val();
     $store.avatar = $('.store-meta-avatar').val();

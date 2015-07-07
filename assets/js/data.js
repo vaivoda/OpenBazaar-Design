@@ -1,4 +1,7 @@
 var messages = ['#obfreetrade', 'we &#10084; free trade', '&#128163; &#128163; &#128163; the fees', 'in bitcoin we trust', 'i heard e&#128169;ay is cool'];
+
+
+
 var chats = [
 {
 	"id": 1,

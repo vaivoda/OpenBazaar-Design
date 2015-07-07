@@ -1,0 +1,158 @@
+.onboarding {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  height: 590px;
+  background: #086A9E;
+  font-family: "font-regular";
+  border-radius: 3px;
+  position: absolute;
+  z-index: 1250;
+  font-size: 13px;
+  top: 80px;
+  left: 50%;
+  margin-left: -262.5px;
+  overflow: hidden;
+  opacity: 0;
+  width: 525px; 
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.onboarding .button-primary {
+  background: #327EB8;
+}
+
+.onboarding .input{
+  color: #fff;
+}
+
+.onboarding .input::-webkit-input-placeholder {
+   color: #79A9C9;
+}
+
+.onboarding label {
+  color: #fff;
+  clear: none;
+  float: left;
+  font-size: 13px;
+  font-family: "font-medium";
+  margin-top: 4px;
+}
+
+.onboarding input[type='radio'] {
+  float: left;
+}
+
+.onboarding .onboarding-photo-holder {
+  height: 250px;
+  width: 525px;
+  background: white;
+  position: relative;
+}
+
+.onboarding .onboarding-header {
+  background: #327eb8;
+  height: 30px;
+  line-height: 30px;
+  font-family: "font-medium";
+  font-size: 16px;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.onboarding .onboarding-body {
+  height: 240px;
+  padding: 0;
+  overflow: scroll;
+}
+
+.onboarding span {
+  font-size: 13px;
+}
+
+.onboarding-icon {
+  background: url(../img/icon.png) 100% 100% / cover no-repeat;
+  height: 126px;
+  position: absolute;
+  width: 90px;
+  left: 50%;
+  margin-left: -45px;
+  top: 50%;
+  margin-top: -86px;
+  z-index: 50;
+}
+
+.onboarding-photo-text {
+  bottom: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "font-medium";
+  margin: 0 5%;
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  z-index: 50;
+  line-height: 18px;
+}
+
+.onboarding .onboarding-footer {
+  background: #327eb8;
+  height: 50px;
+  padding: 0;
+  text-align: right;
+}
+
+.onboarding .onboarding-footer button {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: "font-medium";
+  font-size: 14px;
+  float: left;
+  outline: none;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 50%;
+}
+.onboarding .onboarding-footer button:hover {
+  opacity: .75;
+}
+
+.onboarding .onboarding-footer button.button-first {
+  border-right: 1px solid #086A9E;
+}
+
+.onboarding .onboarding-photo {
+  background: #fff url(../img/onboarding-header.jpg) 50% 50% / cover no-repeat;
+  height: 265px;
+  overflow: hidden;
+  position: absolute;
+  margin: -15px -10px -10px -12px;
+  opacity: .95;
+  width: 555px;
+  -webkit-filter: blur(12px);
+}
+
+.onboarding .avatar {
+  background: #fff;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  background: #fff url(../img/ob1-logo.png) 35% 50% / cover no-repeat;
+  background-size: 80%;
+}
+
+.onboarding .onboarding-photo-shadow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0px -120px 112px -52px rgba(0, 0, 0, 0.9)
+}
+
+.onboarding table {
+  width: 100%;
+  margin: 16px 0;
+}
+.onboarding table td {
+  border-bottom: solid 1px #327EB8;
+  vertical-align: middle;
+}
