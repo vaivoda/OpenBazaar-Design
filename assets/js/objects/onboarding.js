@@ -22,7 +22,7 @@ window.Onboarding = {
   loadContributors: function loadContributors(){
     $('.onboarding-contributors-list').empty();
     _.each(contributors, function(person, index){
-      $('.onboarding-contributors-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-12px user-profile-link" data-user-handle="' + person.handle + '">' + person.name + ' <div class="type-opacity position-margin-top-2px">' + person.handle + '</div></div></td></tr>');
+      $('.onboarding-contributors-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-12px" data-user-handle="' + person.handle + '">' + person.name + ' <div class="type-opacity position-margin-top-2px">' + person.handle + '</div></div></td></tr>');
       // <td class=""><button class="button-primary position-float-right">Follow</button></td>
     });
   },
@@ -30,6 +30,7 @@ window.Onboarding = {
   back: function back(){
     var step = $('.onboarding').attr('data-active-step');
     $('.onboarding-step, .onboarding-button-start, .onboarding-button-next, .onboarding-button-back, .onboarding-button-skip, .onboarding-button-close').hide();
+    $('.onboarding-body').scrollTop(0);
     switch(step){
       case "location":
         Onboarding.renderContributors();
@@ -61,6 +62,7 @@ window.Onboarding = {
   next: function next(){
     var step = $('.onboarding').attr('data-active-step');
     $('.onboarding-step, .onboarding-button-start, .onboarding-button-next, .onboarding-button-back, .onboarding-button-skip, .onboarding-button-close').hide();
+    $('.onboarding-body').scrollTop(0);
     switch(step){
       case "contributors":
         Onboarding.renderLocation();
@@ -99,20 +101,28 @@ window.Onboarding = {
     $('.onboarding-location-list').empty();
     Onboarding.setTitle('Select your country');
     _.each(countries, function(country, index){
-      $('.onboarding-location-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + country + '" name="country" /> <label for="' + country + '">' + country + '</td></tr>');
+      $('.onboarding-location-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + country + '" name="country" /> <label class="position-margin-left-12px" for="' + country + '">' + country + '</td></tr>');
     });
     $('.onboarding-location, .onboarding-button-back, .onboarding-button-next').show();
     $('.onboarding').attr('data-active-step', 'location');   
   },
 
   renderCurrency: function renderCurrency(){
+    $('.onboarding-currency-list').empty();
     Onboarding.setTitle('Select your local currency');
+    _.each(currencies, function(currency, index){
+      $('.onboarding-currency-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + currency + '" name="currency" /> <label class="position-margin-left-12px" for="' + currency + '">' + currency + '</td></tr>');
+    });
     $('.onboarding-currency, .onboarding-button-back, .onboarding-button-next').show();
     $('.onboarding').attr('data-active-step', 'currency'); 
   },
 
   renderTimeZone: function renderTimeZone(){
+    $('.onboarding-timezone-list').empty();
     Onboarding.setTitle('Select your time zone');
+    _.each(timeZones, function(time, index){
+      $('.onboarding-timezone-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + time + '" name="time" /> <label class="position-margin-left-12px" for="' + time + '">' + time + '</td></tr>');
+    });
     $('.onboarding-timezone, .onboarding-button-back, .onboarding-button-next').show();
     $('.onboarding').attr('data-active-step', 'timezone'); 
   },

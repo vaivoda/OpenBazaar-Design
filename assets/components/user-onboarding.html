@@ -4,15 +4,48 @@
 
   <template>
     <div class="onboarding visibility-hidden" data-active-step="contributors">
-      <div class="onboarding-photo-holder"><div class="onboarding-photo"></div><div class="onboarding-icon"></div><div class="onboarding-photo-text">OpenBazaar is an open-source project created by hundreds of contributors with the primary goal of giving the world free trade</div><div class="onboarding-photo-shadow"></div></div>
+      <div class="onboarding-photo-holder"><div class="onboarding-photo"></div><div class="onboarding-icon"></div><div class="onboarding-photo-text">OpenBazaar is an open source project created by hundreds of people with the primary goal of giving the world free trade</div><div class="onboarding-photo-shadow"></div></div>
       <div class="onboarding-header">Contributors</div>
 
       <div class="onboarding-body">
         <div class="onboarding-contributors onboarding-step"><table class="onboarding-contributors-list position-margin-0"></table></div>
         <div class="onboarding-location onboarding-step visibility-hidden"><table class="onboarding-location-list position-margin-0"></table></div>
-        <div class="onboarding-currency onboarding-step visibility-hidden"></div>
-        <div class="onboarding-timezone onboarding-step visibility-hidden"></div>
-        <div class="onboarding-user-role onboarding-step visibility-hidden"></div>
+        <div class="onboarding-currency onboarding-step visibility-hidden"><table class="onboarding-currency-list position-margin-0"></table></div>
+        <div class="onboarding-timezone onboarding-step visibility-hidden"><table class="onboarding-timezone-list position-margin-0"></table></div>
+        <div class="onboarding-user-role onboarding-step visibility-hidden">
+          <table class="position-margin-0">
+            <tr>
+              <td colspan="2" class="position-padding-16px type-opacity">You may change your user type at any point. If you're not sure what user type you would like to be, choose buyer for now.</td>
+            </tr>
+            <tr>
+              <td class="position-padding-16px"><input type="radio" name="user-role" id="user-role-buyer" /></td>
+              <td class="position-width-100 position-padding-left-0">
+                <label for="user-role-buyer">
+                  <div class="position-margin-bottom-3px type-weight-medium">Buyer</div>
+                  <div class="type-weight-medium type-opacity">I'm using OpenBazaar to buy things</div>                  
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td class="position-padding-16px"><input type="radio" name="user-role" id="user-role-merchant" /></td>
+              <td class="position-width-100 position-padding-left-0">
+                <label for="user-role-merchant">
+                  <div class="position-margin-bottom-3px type-weight-medium">Merchant</div>
+                  <div class="type-weight-medium type-opacity">I'm using OpenBazaar to buy and sell things</div>                  
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td class="position-padding-16px"><input type="radio" name="user-role" id="user-role-moderator" /></td>
+              <td class="position-width-100 position-padding-left-0">
+                <label for="user-role-moderator">
+                  <div class="position-margin-bottom-3px type-weight-medium">Moderator</div>
+                  <div class="type-weight-medium type-opacity">I want to offer services to other OpenBazaar users</div>                  
+                </label>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="onboarding-bitcoin-address onboarding-step visibility-hidden"></div>
         <div class="onboarding-handle onboarding-step visibility-hidden"></div>
         <div class="onboarding-avatar onboarding-step visibility-hidden"></div>

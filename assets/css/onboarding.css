@@ -24,8 +24,9 @@
   color: #fff;
   clear: none;
   float: left;
-  margin-left: 12px;
-  margin-top: 3px;
+  font-size: 13px;
+  font-family: "font-medium";
+  margin-top: 4px;
 }
 
 .onboarding input[type='radio'] {

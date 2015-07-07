@@ -227,12 +227,20 @@
   padding: 15px;
 }
 
+.position-padding-16px {
+  padding: 16px;
+}
+
 .position-padding-20px {
   padding: 20px;
 }
 
 .position-padding-90px {
   padding: 90px;
+}
+
+.position-padding-left-0 {
+  padding-left: 0;
 }
 
 .position-padding-left-16px {
@@ -299,6 +307,10 @@
 }
 .position-margin-left-10px {
   margin-left: 10px;
+}
+
+.position-margin-left-12px {
+  margin-left: 12px;
 }
 
 .position-margin-left-15px {
