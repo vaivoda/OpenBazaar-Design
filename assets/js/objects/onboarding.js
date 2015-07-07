@@ -7,6 +7,19 @@ window.Onboarding = {
     $(document).on("click", ".onboarding-button-start, .onboarding-button-next, .onboarding-button-skip", function(event){ Onboarding.next(event) });
     $(document).on("click", ".onboarding-button-back", function(event){ Onboarding.back(event) });
     $(document).on("click", ".onboarding-button-close", function(event){ Onboarding.close(event) });
+    $(document).on("click", ".onboarding-choose-avatar, .avatar-circle", function(event){  
+      $('.onboarding-input-avatar').click();
+      $('.onboarding-button-skip').hide();
+      $('.onboarding-button-next').show();
+    });
+    $(document).on("click", ".connect-to-onename", function(event){ 
+      $('.onboarding-button-skip').hide();
+      $('.onboarding-button-next').show();
+      alert("Don't know how this is going to work yet =/");
+    });
+    $(".onboarding-input-avatar").change(function (){
+       Helper.readURL(this);
+     });
   },
 
   close: function close(){
@@ -41,11 +54,11 @@ window.Onboarding = {
       case "timezone":
         Onboarding.renderCurrency();
         break;
-      case "user-role":
-        Onboarding.renderTimeZone();
-        break;
+      // case "user-role":
+      //   Onboarding.renderTimeZone();
+      //   break;
       case "bitcoin-address":
-        Onboarding.renderUserRole();
+        Onboarding.renderCurrency();
         break;
       case "handle":
         Onboarding.renderBitcoinAddress();
@@ -53,9 +66,9 @@ window.Onboarding = {
       case "avatar":
         Onboarding.renderHandle();
         break;
-      case "final":
-        Onboarding.renderAvatar();
-        break;
+      // case "final":
+      //   Onboarding.renderAvatar();
+      //   break;
     }
   },
 
@@ -74,20 +87,20 @@ window.Onboarding = {
         Onboarding.renderTimeZone();
         break;
       case "timezone":
-        Onboarding.renderUserRole();
-        break;
-      case "user-role":
         Onboarding.renderBitcoinAddress();
         break;
+      // case "user-role":
+      //   Onboarding.renderBitcoinAddress();
+      //   break;
       case "bitcoin-address":
         Onboarding.renderHandle();
         break;
       case "handle":
         Onboarding.renderAvatar();
         break;
-      case "avatar":
-        Onboarding.renderFinal();
-        break;
+      // case "avatar":
+      //   Onboarding.renderFinal();
+      //   break;
     }
   },
 
@@ -148,12 +161,12 @@ window.Onboarding = {
 
   renderAvatar: function renderAvatar(){
     Onboarding.setTitle('Avatar');
-    $('.onboarding-avatar, .onboarding-button-back, .onboarding-button-skip').show();
+    $('.onboarding-avatar, .onboarding-button-back, .onboarding-button-close').show();
     $('.onboarding').attr('data-active-step', 'avatar');
   },
 
   renderFinal: function renderFinal(){
-    Onboarding.setTitle('You\'re all set');
+    Onboarding.setTitle('Enjoy OpenBazaar');
     $('.onboarding-final, .onboarding-button-back, .onboarding-button-close').show();      
     $('.onboarding').attr('data-active-step', 'final');
   },
