@@ -11,6 +11,14 @@ jQuery.expr[':'].Contains = function(a, i, m) {
       .indexOf(m[3].toUpperCase()) >= 0;
 };
 
+$(window).load(function(){
+    $('#main, .chat-conversations, .onboarding-body, .modal-body').mCustomScrollbar({
+      theme:"minimal-dark",
+      scrollInertia: 0
+      // mouseWheelPixels: 200
+    });
+});
+
 $(function() {
   $.cssHooks.bgColor = {
     get: function(elem) {
