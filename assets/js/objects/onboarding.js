@@ -32,14 +32,6 @@ window.Onboarding = {
     setTimeout(function(){ Discover.populateFeed() }, delay);
   },
 
-  loadContributors: function loadContributors(){
-    $('.onboarding-contributors-list').empty();
-    _.each(contributors, function(person, index){
-      $('.onboarding-contributors-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-12px" data-user-handle="' + person.handle + '">' + person.name + ' <div class="type-opacity position-margin-top-2px">' + person.handle + '</div></div></td></tr>');
-      // <td class=""><button class="button-primary position-float-right">Follow</button></td>
-    });
-  },
-
   back: function back(){
     var step = $('.onboarding').attr('data-active-step');
     $('.onboarding-step, .onboarding-button-start, .onboarding-button-next, .onboarding-button-back, .onboarding-button-skip, .onboarding-button-close').hide();
@@ -105,7 +97,11 @@ window.Onboarding = {
   },
 
   renderContributors: function renderContributors(){
-    Onboarding.setTitle('Contributors');
+    $('.onboarding-contributors-list').empty();
+    _.each(contributors, function(person, index){
+      $('.onboarding-contributors-list').append('<tr><td class="position-padding-16px">' + person.name + ' &ndash; <span class="type-opacity position-margin-top-2px">' + person.role + '</span></div></td></tr>');
+    });
+    Onboarding.setTitle('247 contributors');
     $('.onboarding-contributors, .onboarding-button-start').show();
     $('.onboarding').attr('data-active-step', 'contributors');   
   },
@@ -180,7 +176,7 @@ window.Onboarding = {
   },
 
   show: function show(){
-    Onboarding.loadContributors();
+    Onboarding.renderContributors();
     $('body').css('background', '#0B4564')
     setTimeout(function(){ $('.onboarding').fadeTo(100,100) }, 500);
   }
