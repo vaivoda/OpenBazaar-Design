@@ -123,17 +123,19 @@ window.Onboarding = {
 
   renderCurrency: function renderCurrency(){
     $('.onboarding-currency-list').empty();
-    Onboarding.setTitle('Select your local currency');
+    Onboarding.setTitle('Local currency');
     _.each(currencies, function(currency, index){
       $('.onboarding-currency-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + currency + '" name="currency" /> <label class="position-margin-left-12px" for="' + currency + '">' + currency + '</td></tr>');
     });
     $('.onboarding-currency, .onboarding-button-back, .onboarding-button-next').show();
     $('.onboarding').attr('data-active-step', 'currency'); 
+    $('.onboarding-currency-search').focus();
+
   },
 
   renderTimeZone: function renderTimeZone(){
     $('.onboarding-timezone-list').empty();
-    Onboarding.setTitle('Select your time zone');
+    Onboarding.setTitle('Time zone');
     _.each(timeZones, function(time, index){
       $('.onboarding-timezone-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + time + '" name="time" /> <label class="position-margin-left-12px" for="' + time + '">' + time + '</td></tr>');
     });

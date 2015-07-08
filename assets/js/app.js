@@ -51,6 +51,10 @@ $(function() {
     if($('.onboarding-location-search').is(':focus') ){
       var locations = $(".onboarding-location-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
+    }    
+    if($('.onboarding-currency-search').is(':focus') ){
+      var locations = $(".onboarding-currency-list").find("tr").hide();
+      locations.filter(":Contains('" + $('.onboarding-currency-search').val() + "')").show();
     }
   }
 
