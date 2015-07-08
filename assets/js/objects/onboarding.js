@@ -141,6 +141,7 @@ window.Onboarding = {
     });
     $('.onboarding-timezone, .onboarding-button-back, .onboarding-button-next').show();
     $('.onboarding').attr('data-active-step', 'timezone'); 
+    $('.onboarding-timezone-search').focus();
   },
 
   renderUserRole: function renderUserRole(){

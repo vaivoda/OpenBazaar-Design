@@ -55,6 +55,10 @@ $(function() {
     if($('.onboarding-currency-search').is(':focus') ){
       var locations = $(".onboarding-currency-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-currency-search').val() + "')").show();
+    }    
+    if($('.onboarding-timezone-search').is(':focus') ){
+      var locations = $(".onboarding-timezone-list").find("tr").hide();
+      locations.filter(":Contains('" + $('.onboarding-timezone-search').val() + "')").show();
     }
   }
 
