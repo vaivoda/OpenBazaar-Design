@@ -112,12 +112,13 @@ window.Onboarding = {
 
   renderLocation: function renderLocation(){
     $('.onboarding-location-list').empty();
-    Onboarding.setTitle('Select your country');
+    Onboarding.setTitle('Country');
     _.each(countries, function(country, index){
       $('.onboarding-location-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + country + '" name="country" /> <label class="position-margin-left-12px" for="' + country + '">' + country + '</td></tr>');
     });
     $('.onboarding-location, .onboarding-button-back, .onboarding-button-next').show();
     $('.onboarding').attr('data-active-step', 'location');   
+    $('.onboarding-location-search').focus();
   },
 
   renderCurrency: function renderCurrency(){

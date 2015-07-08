@@ -6,6 +6,11 @@ var delay = 1900; //3000
 var fade = 500;
 $store = {'avatar': '', 'name': '', 'description': '', 'colorprimary': '', 'colorsecondary': '', 'colortext': '', 'website': '', 'email': '', 'guid': '', 'handle': '', 'items': []};
 
+jQuery.expr[':'].Contains = function(a, i, m) {
+  return jQuery(a).text().toUpperCase()
+      .indexOf(m[3].toUpperCase()) >= 0;
+};
+
 $(function() {
   $.cssHooks.bgColor = {
     get: function(elem) {
@@ -43,8 +48,10 @@ $(function() {
     if($('.vendor-meta-name').is(':focus') && $('.vendor-meta-name').val() !== ""){ $('.vendor-banner-2 .vendor-name').html($('.vendor-meta-name').val()); }
     if($('.vendor-meta-description').is(':focus') && $('.vendor-meta-description').val() !== ""){ $('.vendor-banner-2 .vendor-description').html($('.vendor-meta-description').val()); }
     if($('.vendor-meta-avatar').is(':focus') && $('.vendor-meta-avatar').val() !== ""){ $('.vendor-banner-2 .vendor-avatar').css('background', 'url(' + $('.vendor-meta-avatar').val() + ') 50% 50% / cover no-repeat'); }
-    
-    Navigation.setArrowOpacity();
+    if($('.onboarding-location-search').is(':focus') ){
+      var locations = $(".onboarding-location-list").find("tr").hide();
+      locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
+    }
   }
 
   function scroll(){

@@ -20,6 +20,18 @@
   background: #327EB8;
 }
 
+.list-input {
+  outline: none;
+  color: #fff;
+  background: transparent;
+  height: 52px;
+  border: 0;
+  font-size: 13px;
+  border-bottom: solid 1px #327EB8;
+  width: 100%;
+  padding: 15px;
+}
+
 .onboarding .input{
   color: #fff;
 }
@@ -32,7 +44,8 @@
   width: 120px;
 }
 
-.onboarding .input::-webkit-input-placeholder {
+.onboarding .input::-webkit-input-placeholder,
+.list-input::-webkit-input-placeholder {
    color: #79A9C9;
 }
 
