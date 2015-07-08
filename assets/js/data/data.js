@@ -3,51 +3,61 @@ var contributors = [
 	{
 		"name": "Luis	Hammond",
 		"handle": "@luis",
+		"role": "Developer",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"
 	},
 	{
 		"name": "Isabel	Taylor",
 		"handle": "@isabel",
+		"role": "Marketing",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/_arashasghari/128.jpg"
 	},
 	{
 		"name": "Tami	Goodwin",
 		"handle": "@pixeliris",
+		"role": "Design",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"
 	},
 	{
 		"name": "Bert	Pierce",
 		"handle": "@teclaro",
+		"role": "Icon creator",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/teclaro/128.jpg"
 	},
 	{
 		"name": "Jeffery	Leonard",
 		"handle": "@jasongraphix",
+		"role": "Windows installer",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jasongraphix/128.jpg"
 	},
 	{
 		"name": "Mike Wolf",
 		"handle": "@wolf",
+		"role": "Design Lead",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"
 	},
 	{
 		"name": "Dolores	Bennett",
 		"handle": "@mijustin",
+		"role": "Mobile",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg"
 	},
 	{
 		"name": "Jose	Patrick",
 		"handle": "@nzcode",
+		"role": "Strategy",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nzcode/128.jpg"
 	},
 	{
 		"name": "Inez	Stokes",
 		"handle": "@peterme",
+		"role": "Developer",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/peterme/128.jpg"
 	},
 	{
 		"name": "Cecelia	Gonzalez",
 		"handle": "@allisongrayce",
+		"role": "Developer",
 		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/allisongrayce/128.jpg"
 	},
 ]
